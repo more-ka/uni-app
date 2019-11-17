@@ -1,48 +1,57 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-			}
-		}
-	    ,{
-            "path" : "pages/search/search",
-            "style" : {}
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "app-plus": {
+          "titleNView": false //禁用原生导航栏
         }
-        ,{
-            "path" : "pages/user/user",
-            "style" : {}
+      }
+    }, {
+      "path": "pages/search/search",
+      "style": {
+        "app-plus": {
+          "titleNView": false //禁用原生导航栏
         }
-    ],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "电影推荐",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"tabBar": {
-		"backgroundColor":"#FFFFFF",
-		"borderStyle":"black",
-		"selectedColor":"#333333",
-		"list": [
-			{
-				"pagePath":"pages/index/index",
-				"text":"首页",
-				"iconPath":"static/tabBarIcon/index.png",
-				"selectedIconPath":"static/tabBarIcon/index_sel.png"
-			},
-			{
-				"pagePath":"pages/search/search",
-				"text":"搜索",
-				"iconPath":"static/tabBarIcon/search.png",
-				"selectedIconPath":"static/tabBarIcon/search_sel.png"
-			},
-			{
-				"pagePath":"pages/user/user",
-				"text":"我的",
-				"iconPath":"static/tabBarIcon/me.png",
-				"selectedIconPath":"static/tabBarIcon/me_sel.png"
-			}
-		]
-	}
+      }
+    }, {
+      "path": "pages/user/user",
+      "style": {
+        "app-plus": {
+          "titleNView": false //禁用原生导航栏
+        }
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "电影推荐",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "selectedColor": "#515151",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabBarIcon/index.png",
+        "selectedIconPath": "static/tabBarIcon/index_sel.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "static/tabBarIcon/search.png",
+        "selectedIconPath": "static/tabBarIcon/search_sel.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "static/tabBarIcon/me.png",
+        "selectedIconPath": "static/tabBarIcon/me_sel.png"
+      }
+    ]
+  }
 }

@@ -1,0 +1,59 @@
+	/* 轮播图 */
+  .page{
+    background: #F7F7F7;
+  }
+  .page-block{
+    background: #FFFFFF;
+  }
+  .page .swiper{
+		width: 750upx;
+		height: 440upx;
+	}
+	.page .swiper image{
+		width: 750upx;
+		height: 440upx;
+		display: inline-block;
+	}
+  
+  /* 热门超英 */
+  .hot{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20upx;
+  }
+  .title{
+    margin: 10upx 20upx;
+    font-weight: bold;
+  }
+  .title  image{
+    width: 30upx;
+    height: 30upx;
+    display: inline-block;
+  }
+  .title text{
+    margin-left: 20upx;
+  }
+
+  .scroll{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    white-space: nowrap;
+  }
+  .scroll .item{
+    display: inline-block;
+    width: 200upx;
+    height: 200upx;
+    background: lightblue;
+    margin: 20upx;
+}
+.item .poster{
+  width: 200upx;
+  height: 270upx;
+}
+.item .movieName{
+  width: 200upx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
