@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/search/search",
-    "pages/user/user"
+    "pages/user/user",
+    "components/score/score"
   ],
   "subPackages": [],
   "window": {
@@ -37,5 +38,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap11.json"
 }

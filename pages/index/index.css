@@ -1,6 +1,7 @@
 	/* 轮播图 */
   .page{
     background: #F7F7F7;
+    border: 1px solid lightslategrey;
   }
   .page-block{
     background: #FFFFFF;
@@ -42,9 +43,6 @@
   }
   .scroll .item{
     display: inline-block;
-    width: 200upx;
-    height: 200upx;
-    background: lightblue;
     margin: 20upx;
 }
 .item .poster{
@@ -57,3 +55,4 @@
   overflow: hidden;
   white-space: nowrap;
 }
+

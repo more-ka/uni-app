@@ -22,7 +22,11 @@
         }
       }
     }
-  ],
+      ,{
+            "path" : "components/score/score",
+            "style" : {}
+        }
+    ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "电影推荐",
