@@ -1,59 +1,55 @@
 <template name="score">
-	<view>
-		<view class="movieScore">
-		  <view class="movieStars">
-		    <image v-for="yellow in yellowStar" :key="yellow" src="../../static/icos/star-yellow.png" calss="starIcon"></image>
-        <image v-for="grey in greyStar" src="../../static/icos/star-gray.png" class="starIcon"></image>
-		  </view>
-		  <view class="movieNum" v-if="showNum">{{movieScore}}</view>
-		</view>
-	</view>
+  <view class="movieScore">
+      <image v-for="yellow in yellowStar" :key="yellow" src="../../static/icos/star-yellow.png" calss="starIcon"></image>
+      <image v-for="grey in greyStar" src="../../static/icos/star-gray.png" class="starIcon"></image>
+    <view class="movieNum" v-if="showNum">{{movieScore}}</view>
+  </view>
 </template>
 
 <script>
-	export default {
+  export default {
     name: "score",
-		data() {
-			return {
-				yellowStar: 0,
+    data() {
+      return {
+        yellowStar: 0,
         greyStar: 5
-			}
-		},
-    props:{
+      }
+    },
+    props: {
       movieScore: 0,
       showNum: {
         type: Boolean
       }
     },
-		created(){
+    created() {
       var tempScore = 0
       // if(this.movieScore!==""&&this.movieScore==undefined&&movieScore!==null){
-        tempScore = this.movieScore
+      tempScore = this.movieScore
       // }
       var yellowStar = parseInt(tempScore / 2)
-      var greyStar =  5 - yellowStar
+      var greyStar = 5 - yellowStar
       this.yellowStar = yellowStar
       this.greyStar = greyStar
     }
-	}
+  }
 </script>
 
 <style>
-  .movieScore{
+  .movieScore {
     display: flex;
     flex-direction: row;
-  }
-  .movieScore .movieStars{
+    height: 20rpx;
     align-items: center;
-    justify-content: center;
   }
-  .movieScore .movieStars image{
-    width: 20upx;
-    height: 20upx;
+
+  .movieScore image {
+    width: 20rpx;
+    height: 20rpx;
   }
-  .movieScore .movieNum{
-    margin-top: 8upx;
-    margin-left: 20upx;
-    font-size: 14px;
+
+  .movieScore .movieNum {
+    margin-left: 20rpx;
+    font-size: 12px;
+    color: #808080;
   }
 </style>

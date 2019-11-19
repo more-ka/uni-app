@@ -5,14 +5,15 @@
   }
   .page-block{
     background: #FFFFFF;
+    marign-top: 20rpx;
   }
   .page .swiper{
-		width: 750upx;
-		height: 440upx;
+		width: 750rpx;
+		height: 440rpx;
 	}
 	.page .swiper image{
-		width: 750upx;
-		height: 440upx;
+		width: 750rpx;
+		height: 440rpx;
 		display: inline-block;
 	}
   
@@ -20,19 +21,18 @@
   .hot{
     display: flex;
     flex-direction: column;
-    margin-top: 20upx;
   }
-  .title{
-    margin: 10upx 20upx;
+  .page-block .title{
+    margin: 10rpx 20rpx;
     font-weight: bold;
   }
   .title  image{
-    width: 30upx;
-    height: 30upx;
+    width: 30rpx;
+    height: 30rpx;
     display: inline-block;
   }
   .title text{
-    margin-left: 20upx;
+    margin-left: 20rpx;
   }
 
   .scroll{
@@ -43,16 +43,97 @@
   }
   .scroll .item{
     display: inline-block;
-    margin: 20upx;
+    margin: 20rpx;
 }
 .item .poster{
-  width: 200upx;
-  height: 270upx;
+  width: 200rpx;
+  height: 270rpx;
 }
 .item .movieName{
-  width: 200upx;
+  width: 200rpx;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
+
+/* 热门预告 */
+.hotMovie{
+ 
+}
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0 20rpx;
+  justify-content: space-between;
+}
+.movies video{
+  width: 330rpx;
+  height: 200rpx;
+  margin-top: 10rpx;
+}
+
+/* 猜你喜欢 */
+.guess-u-like{
+  
+}
+.guessLikeMovies{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.likeMovie{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.likeMovie image{
+  width: 180rpx;
+  height: 240rpx;
+}
+.likeMovie .movieDetail{
+  width: 40%;
+}
+.likeMovie .movieDetail .movieTitle{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.likeMovie .movieDetail .movieCategory,
+.likeMovie .movieDetail .movieTime{
+  font-size: 14px;
+  color: #808080;
+}
+.likeMovie .praise{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 140rpx;
+  border-left: dashed;
+  border-left-color: #dbdbdb;
+}
+.likeMovie .praise image{
+  width: 32rpx;
+  height: 32rpx;
+  align-self: center;
+}
+.likeMovie .praise view{
+  font-size: 28rpx;
+  align-self: center;
+  color: orange;
+}
+.praise .animation{
+  opacity: 0;
+  color: orange;
+}
+
+
+
+
+
+
+
+
+
+
 

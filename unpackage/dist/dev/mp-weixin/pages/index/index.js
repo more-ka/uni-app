@@ -131,7 +131,59 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -264,20 +316,60 @@ var _score = _interopRequireDefault(__webpack_require__(/*! ../../components/sco
 //
 //
 //
-var _default = { data: function data() {return {};}, onLoad: function onLoad() {// uni.request({
-    //   header: {
-    //     'content-type': 'application/x-www-form-urlencoded'
-    //   },
-    //   data: {
-    //     qq: '466481615'
-    //   },
-    //   url: "https://www.imovietrailer.com/superhero/index/carousel/list",
-    //   method: "POST",
-    //   success: (res) => {
-    //     console.log(res.data)
-    //   }
-    // })
-  }, methods: {}, components: { score: _score.default } };exports.default = _default;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { animationData: {} };}, onUnload: function onUnload() {this.animationData = {};}, onLoad: function onLoad() {this.animation = uni.createAnimation();}, methods: { praise: function praise() {this.animation.translateY(-60).opacity(1).step().translateY(0).opacity(0).step({ duration: 0 });this.animationData = this.animation.export();} }, components: { score: _score.default } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 21 */
@@ -382,10 +474,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
 //
 //
 //

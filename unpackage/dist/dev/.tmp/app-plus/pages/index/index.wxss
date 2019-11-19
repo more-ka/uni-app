@@ -202,8 +202,12 @@
           align-self: center;
   color: orange;
 }
-.praise .animation{
-  opacity: 0;
-  color: orange;
+.animation{
+  width: 100px;
+  height: 200px;
+}
+.animation image{
+  width: 100px;
+  height: 100px;
 }
 

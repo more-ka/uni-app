@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/search/search",
-    "pages/user/user"
+    "pages/user/user",
+    "components/score/score"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -11,9 +12,10 @@
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
+    "color": "#bfbfbf",
     "backgroundColor": "#FFFFFF",
     "borderStyle": "black",
-    "selectedColor": "#333333",
+    "selectedColor": "#515151",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -42,6 +44,6 @@
     "autoclose": false
   },
   "appname": "movieRecommend",
-  "compilerVersion": "2.3.7",
+  "compilerVersion": "2.4.2",
   "usingComponents": {}
 }
