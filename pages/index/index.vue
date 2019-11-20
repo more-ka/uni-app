@@ -70,8 +70,6 @@
       <view class="movies">
         <video poster="http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png" src="http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"></video>
         <video poster="http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png" src="http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"></video>
-        <video poster="http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png" src="http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"></video>
-        <video poster="http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png" src="http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"></video>
       </view>
     </view>
     <view class="guess-u-like page-block">
@@ -91,6 +89,70 @@
           <view class="praise">
             <image src="../../static/icos/praise.png" class="icon"></image>
             <view @click="praise">点赞</view>
+            <view :animation="animationData" class="animation">+1</view>
+          </view>
+        </view>
+      </view>
+      <view class="guessLikeMovies">
+        <view class="likeMovie">
+          <image src="http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png" mode=""></image>
+          <view class="movieDetail">
+            <view class="movieTitle">秦时明月之沧海横流</view>
+            <score :showNum="false" :movieScore="10"></score>
+            <view class="movieCategory">2018 / 美国 / 科幻 / 超级英雄</view>
+            <view class="movieTime">上映时间：2014-04-04(美国/中国大陆)</view>
+          </view>
+          <view class="praise" @click="praise">
+            <image src="../../static/icos/praise.png" class="icon"></image>
+            <view>点赞</view>
+            <view :animation="animationData" class="animation">+1</view>
+          </view>
+        </view>
+      </view>
+      <view class="guessLikeMovies">
+        <view class="likeMovie">
+          <image src="http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png" mode=""></image>
+          <view class="movieDetail">
+            <view class="movieTitle">秦时明月之沧海横流</view>
+            <score :showNum="false" :movieScore="10"></score>
+            <view class="movieCategory">2018 / 美国 / 科幻 / 超级英雄</view>
+            <view class="movieTime">上映时间：2014-04-04(美国/中国大陆)</view>
+          </view>
+          <view class="praise" @click="praise">
+            <image src="../../static/icos/praise.png" class="icon"></image>
+            <view>点赞</view>
+            <view :animation="animationData" class="animation">+1</view>
+          </view>
+        </view>
+      </view>
+      <view class="guessLikeMovies">
+        <view class="likeMovie">
+          <image src="http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png" mode=""></image>
+          <view class="movieDetail">
+            <view class="movieTitle">秦时明月之沧海横流</view>
+            <score :showNum="false" :movieScore="10"></score>
+            <view class="movieCategory">2018 / 美国 / 科幻 / 超级英雄</view>
+            <view class="movieTime">上映时间：2014-04-04(美国/中国大陆)</view>
+          </view>
+          <view class="praise" @click="praise">
+            <image src="../../static/icos/praise.png" class="icon"></image>
+            <view>点赞</view>
+            <view :animation="animationData" class="animation">+1</view>
+          </view>
+        </view>
+      </view>
+      <view class="guessLikeMovies">
+        <view class="likeMovie">
+          <image src="http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png" mode=""></image>
+          <view class="movieDetail">
+            <view class="movieTitle">秦时明月之沧海横流</view>
+            <score :showNum="false" :movieScore="10"></score>
+            <view class="movieCategory">2018 / 美国 / 科幻 / 超级英雄</view>
+            <view class="movieTime">上映时间：2014-04-04(美国/中国大陆)</view>
+          </view>
+          <view class="praise" @click="praise">
+            <image src="../../static/icos/praise.png" class="icon"></image>
+            <view>点赞</view>
             <view :animation="animationData" class="animation">+1</view>
           </view>
         </view>

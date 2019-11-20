@@ -1,0 +1,75 @@
+.page{
+  display: flex;
+  flex-direction: column;
+  background: #F7F7F7;
+}
+.title{
+  font-weight: bold;
+  position: fixed;
+  z-index: 200;
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+  background: #FFFFFF;
+  line-height: 80rpx;
+  }
+/* 搜索栏 */
+.searchWrapper{
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx 20rpx 20rpx;
+  position: fixed;
+  z-index: 200;
+  width: 95vw;
+  top:200;
+  margin-top: 80rpx;
+  padding-right: 20rpx;
+  background: #FFFFFF;
+}
+.searchIconWrapper{
+  display: flex;
+  align-items: center;
+  background: #EAEAEA;
+  padding: 10rpx 0;
+}
+.searchIconWrapper image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0rpx 10rpx;
+}
+.inputWrapper{
+  flex: 1;
+  background: #EAEAEA;
+  font-size: 14px;
+  padding: 10rpx 0;
+}
+input{
+  /* height: 40rpx; */
+  width: 325rpx;
+}
+
+/* 电影列表 */
+.main{
+  padding: 60rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 140rpx;
+}
+.movie{
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction:column;
+}
+.poster{
+  width: 200rpx;
+  height: 270rpx;
+}
+.movieName{
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 200rpx;
+}
