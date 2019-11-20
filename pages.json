@@ -26,6 +26,12 @@
             "path" : "components/score/score",
             "style" : {}
         }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+              "navigationBarTitleText":"注册/登录"
+            }
+        }
     ],
   "globalStyle": {
     "navigationBarTextStyle": "black",

@@ -1,0 +1,38 @@
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.picture{
+  margin-bottom: 100rpx;
+  margin-top: 100rpx;
+}
+.picture image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.username,
+.password{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  border-bottom: 1px solid #999999;
+  margin-top: 40rpx;
+  height: 60rpx;
+}
+.username .text,
+.password .text{
+  font-size: 16px;
+  align-self: center;
+  color: rgba(153,153,153);
+  width: 100rpx;
+}
+.username input,
+.password input{
+  align-self: center;
+  font-size: 16px;
+}
+.login{
+  width: 80%;
+  margin-top: 80rpx;
+}
