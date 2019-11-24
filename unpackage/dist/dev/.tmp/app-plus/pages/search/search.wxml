@@ -1,1 +1,1 @@
-<view>搜索页面</view>
+<view class="page"><view class="title">搜索</view><view class="searchWrapper"><view class="searchIconWrapper"><image class="searchIcon" src="../../static/icos/search.png"></image></view><view class="inputWrapper"><input type="text" value="" placeholder="搜索电影"/></view></view><view class="main"><block wx:for="{{searchData}}" wx:for-item="movie" wx:for-index="__i0__" wx:key="id"><view class="movie"><image class="poster" src="{{movie.cover}}"></image><text class="movieName">{{movie.name}}</text></view></block></view></view>

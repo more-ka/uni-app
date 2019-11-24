@@ -8,6 +8,7 @@
   flex-direction: row;
   padding: 0 40rpx;
   align-items: center;
+  position: relative;
 }
 .picture{
   width: 120rpx;
@@ -25,4 +26,29 @@ button{
 }
 button:after{
   border: 1px solid transparent !important;
+}
+.userInfo{
+  margin-left: 40rpx;
+}
+.username{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+.userid{
+  font-size: 28rpx;
+  color: rgba(0,0,0,0.5);
+}
+
+/* 修改个人信息 */
+.modify{
+  
+}
+.modify image{
+  width: 40rpx;
+  height: 40rpx;
+  right: 40rpx;
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
 }

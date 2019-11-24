@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/search/search",
     "pages/user/user",
-    "components/score/score"
+    "components/score/score",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarTextStyle": "black",

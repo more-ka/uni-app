@@ -36,3 +36,15 @@
   width: 80%;
   margin-top: 80rpx;
 }
+
+/* 第三方授权登录 */
+.auth{
+  display: flex;
+  margin-top: 80rpx;
+}
+image{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 32rpx;
+}
+

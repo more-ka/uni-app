@@ -1,1 +1,1 @@
-<view>用户页面</view>
+<view class="page" style="{{'height:'+(height+'px')+';'}}"><view class="header"><view class="picture"><image src="../../static/icos/default-face.png" mode></image></view><button data-event-opts="{{[['tap',[['login',['$event']]]]]}}" bindtap="__e">注册/登录</button></view></view>

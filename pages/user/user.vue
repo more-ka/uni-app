@@ -4,7 +4,14 @@
         <view class="picture">
           <image src="../../static/icos/default-face.png" mode=""></image>
         </view>
-        <button @click="login">注册/登录</button>
+        <button v-if="!userInfo" @click="login">注册/登录</button>
+        <view v-else class="userInfo">
+          <view class="username">{{userInfo.username}}</view>
+          <view class="userid">id: {{userInfo.userid}}</view>
+        </view>
+        <view v-if="userInfo" class="modify" @click="modify">
+          <image src="../../static/icos/settings.png" mode=""></image>
+        </view>
       </view>
     </view>
 </template>
@@ -13,7 +20,11 @@
 	export default {
 		data() {
 			return {
-        height: 100
+        height: 100,
+        userInfo: {
+          "username":"测试账号",
+          "userid": 53231323
+        }
 			}
 		},
     onLoad() {
@@ -24,6 +35,11 @@
 			login(){
         uni.navigateTo({
           url: '/pages/login/login'
+        })
+      },
+      modify(){
+        uni.navigateTo({
+          url: '/pages/userinfo/userinfo'
         })
       }
 		}

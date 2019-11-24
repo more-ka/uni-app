@@ -1,0 +1,73 @@
+.page{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.picture{
+  margin-bottom: 100rpx;
+  margin-top: 100rpx;
+}
+.picture image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.username,
+.password{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 80%;
+  border-bottom: 1px solid #999999;
+  margin-top: 40rpx;
+  height: 60rpx;
+}
+.username .text,
+.password .text{
+  font-size: 16px;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  color: rgba(153,153,153);
+  width: 100rpx;
+}
+.username input,
+.password input{
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 16px;
+}
+.login{
+  width: 80%;
+  margin-top: 80rpx;
+}
+/* 第三方授权登录 */
+.auth{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 80rpx;
+}
+image{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 32rpx;
+}
+
