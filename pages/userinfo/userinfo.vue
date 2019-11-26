@@ -1,10 +1,10 @@
 <template>
   <view class="page">
     <view class="infoWrapper">
-      <view class="avatarLine line">
+      <view class="avatarLine line" @click="changeAvatar">
         <view class="title">头像</view>
-        <view class="right" @click="image">
-          <image class="avatar" src="../../static/carousel/batmanvssuperman.png"></image>
+        <view class="right">
+          <image class="avatar" src="localhost:8080/63bbd2b7-545b-4017-a434-572a1fbdf392"></image>
           <image src="../../static/icos/left-gray-arrow.png" class="right-icon"></image>
         </view>
       </view>
@@ -31,8 +31,8 @@
       </view>
     </view>
     <view class="container">
-      <view class="clearStorage">清理缓存</view>
-      <view class="logout">退出登录</view>
+      <view class="clearStorage" @click="clearStorage">清理缓存</view>
+      <view class="logout" @click="clearStorage">退出登录</view>
     </view>
   </view>
 </template>
@@ -41,24 +41,62 @@
   export default {
     data() {
       return {
-
+        // imageSrc: '../../static/carousel/batmanvssuperman.png',
+        userImage: ''
       }
     },
+    onLoad() {
+      // let storage = uni.getStorageSync("globalUser")
+      // this.imageSrc = storage[image]
+      let userImage = uni.getStorageSync("userImage")
+      this.userImage = userImage
+      console.log(this.userImage);
+      
+    },
     methods: {
-      image() {
-
-        uni.previewImage({
-          urls: res.tempFilePaths,
-          longPressActions: {
-            itemList: ['发送给朋友', '保存图片', '收藏'],
-            success: function(data) {
-              console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');
-            },
-            fail: function(err) {
-              console.log(err.errMsg);
+      changeAvatar(){
+        uni.showActionSheet({
+          // itemList按钮的文字接受的是数组
+          itemList: ["查看头像","从相册选择图片"],
+          success(e){
+            var index = e.tapIndex
+            if(index ===0){
+              let url  = "../../static/carousel/batmanvssuperman.png"
+              let arr=[]
+              arr.push(url)
+              uni.previewImage({
+                // 预览功能图片也必须是数组的
+                urls: arr
+              })
+            }else if(index === 1){
+              uni.chooseImage({
+                count: 1,
+                sizeType: ["compressed"],
+                success(response) {
+                  var fileUrl = response.tempFilePaths[0]
+                 uni.navigateTo({
+                   url: "/pages/meface/meface?fileUrl="+fileUrl
+                 })
+                }
+              })
             }
-          }
-        });
+            }
+        })
+      },
+      clearStorage(){
+        // 没有后台, 所以跳回用户页面
+        uni.showToast({
+          title: "请稍后...",
+          mask: true,
+          icon: "loading"
+        })
+        uni.clearStorage()
+        setTimeout(function(){
+          uni.hideToast()
+          uni.reLaunch({
+            url: '/pages/user/user'
+          })
+        },2000)
       }
     }
   }
