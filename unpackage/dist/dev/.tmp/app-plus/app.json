@@ -4,7 +4,9 @@
     "pages/search/search",
     "pages/user/user",
     "components/score/score",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/userinfo/userinfo",
+    "pages/meface/meface"
   ],
   "window": {
     "navigationBarTextStyle": "black",

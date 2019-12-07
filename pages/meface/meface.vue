@@ -21,14 +21,7 @@
       let fileUrl = e.fileUrl
       this.fileUrl = fileUrl
       uni.setStorageSync('globalUser','{"name": "测试账号","id":"123123","image":"http://localhost:8080/63bbd2b7-545b-4017-a434-572a1fbdf392"}')
-      uni.request({
-        url: "http://localhost:8080/index",
-        method: "GET",
-        success: (res) => {
-        	console.log('111111111');
-        		console.log(res);
-        }
-      })
+
     },
     methods: {
       again(){
@@ -54,6 +47,15 @@
         console.log(typeof globalUser);
         uni.setStorageSync(`userImage`,`${fileUrl}`)
         console.log(uni.getStorageSync("userImage"));
+        
+        // uni.request({
+        //   url: "http://localhost:8080/index",
+        //   method: "GET",
+        //   success: (res) => {
+        //   	console.log('111111111');
+        //   		console.log(res);
+        //   }
+        // })
         // 文件上传, 没有后台, 图片也就不能上传, 不能替换
       }
     }

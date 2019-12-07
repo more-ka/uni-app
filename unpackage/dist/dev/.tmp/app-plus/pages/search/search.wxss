@@ -14,11 +14,15 @@
   font-weight: bold;
   position: fixed;
   z-index: 200;
-  height: 80rpx;
+  /* height: 80rpx; */
   width: 100%;
   text-align: center;
   background: #FFFFFF;
   line-height: 80rpx;
+
+  padding-top: 60rpx;
+  line-height: 80rpx;
+
 }
 /* 搜索栏 */
 .searchWrapper{
@@ -31,12 +35,15 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding: 0 20rpx 20rpx 20rpx;
+  padding:0 20rpx 20rpx 20rpx;
   position: fixed;
   z-index: 200;
   width: 95vw;
   top:200;
   margin-top: 80rpx;
+
+  margin-top: 130rpx;
+
   padding-right: 20rpx;
   background: #FFFFFF;
 }
@@ -72,7 +79,7 @@ input{
 }
 /* 电影列表 */
 .main{
-  padding: 60rpx;
+  padding: 40rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -90,9 +97,12 @@ input{
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 140rpx;
+
+  margin-top: 200rpx;
+
 }
 .movie{
-  margin-top: 10rpx;
+  margin-bottom: 20rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -108,6 +118,7 @@ input{
   height: 270rpx;
 }
 .movieName{
+  margin-top: 6rpx;
   font-size: 12px;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;

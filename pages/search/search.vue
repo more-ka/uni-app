@@ -23,13 +23,14 @@
 	export default {
 		data() {
 			return {
-				searchData: search.data.rows
+				searchData: []
 			}
 		},
     onReachBottom() {
       this.searchData = this.searchData.concat(search.data.rows)
     },
     onLoad(){
+      this.searchData = search.data.rows.concat(search.data.rows)
     },
 		methods: {
 			

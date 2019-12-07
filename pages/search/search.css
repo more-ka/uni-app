@@ -2,29 +2,38 @@
   display: flex;
   flex-direction: column;
   background: #F7F7F7;
+
 }
 .title{
   font-weight: bold;
   position: fixed;
   z-index: 200;
-  height: 80rpx;
+  /* height: 80rpx; */
   width: 100%;
   text-align: center;
   background: #FFFFFF;
   line-height: 80rpx;
+  /* #ifdef APP-PLUS */
+  padding-top: 60rpx;
+  line-height: 80rpx;
+  /* #endif */
   }
 /* 搜索栏 */
 .searchWrapper{
   display: flex;
   flex-direction: row;
-  padding: 0 20rpx 20rpx 20rpx;
+  padding:0 20rpx 20rpx 20rpx;
   position: fixed;
   z-index: 200;
   width: 95vw;
   top:200;
   margin-top: 80rpx;
+  /* #ifdef APP-PLUS */
+  margin-top: 130rpx;
+  /* #endif */
   padding-right: 20rpx;
   background: #FFFFFF;
+  
 }
 .searchIconWrapper{
   display: flex;
@@ -50,15 +59,19 @@ input{
 
 /* 电影列表 */
 .main{
-  padding: 60rpx;
+  padding: 40rpx;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 140rpx;
+  /* #ifdef APP-PLUS */
+  margin-top: 200rpx;
+  /* #endif */
 }
+
 .movie{
-  margin-top: 10rpx;
+  margin-bottom: 20rpx;
   display: flex;
   flex-direction:column;
 }
@@ -67,6 +80,7 @@ input{
   height: 270rpx;
 }
 .movieName{
+  margin-top: 6rpx;
   font-size: 12px;
   text-overflow: ellipsis;
   overflow: hidden;

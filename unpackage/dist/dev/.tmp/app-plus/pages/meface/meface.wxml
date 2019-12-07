@@ -1,0 +1,1 @@
+<view class="page"><view class="main"><image class="image" src="{{fileUrl}}"></image></view><view class="container"><view data-event-opts="{{[['tap',[['again',['$event']]]]]}}" class="again" bindtap="__e">重新选择</view><view data-event-opts="{{[['tap',[['update',['$event']]]]]}}" class="confirm" bindtap="__e">确定上传</view></view></view>

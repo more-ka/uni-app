@@ -13,13 +13,41 @@
       -ms-flex-align: center;
           align-items: center;
 }
+form{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .picture{
   margin-bottom: 100rpx;
-  margin-top: 100rpx;
+  margin-top: 200rpx;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .picture image{
   width: 160rpx;
   height: 160rpx;
+  margin: auto;
 }
 .username,
 .password{
@@ -32,7 +60,7 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 80%;
+  width: 70vw;
   border-bottom: 1px solid #999999;
   margin-top: 40rpx;
   height: 60rpx;
@@ -52,6 +80,21 @@
       -ms-flex-item-align: center;
           align-self: center;
   font-size: 16px;
+}
+.username.active,
+.password.active{
+  border-bottom: 1px solid red;
+}
+.tipsWrapper{
+ margin-top: 30rpx;
+ height: 30rpx;
+}
+.tips{
+  height: 30rpx;
+  line-height: 30rpx;
+  color: red;
+  font-size: 15px;
+  /* border: 1px solid red; */
 }
 .login{
   width: 80%;

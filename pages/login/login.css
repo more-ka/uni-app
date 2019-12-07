@@ -3,19 +3,29 @@
   flex-direction: column;
   align-items: center;
 }
+form{
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  }
 .picture{
   margin-bottom: 100rpx;
-  margin-top: 100rpx;
+  margin-top: 200rpx;
+  align-self: center;
+  display: flex;
 }
 .picture image{
   width: 160rpx;
   height: 160rpx;
+  margin: auto;
 }
 .username,
 .password{
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 70vw;
   border-bottom: 1px solid #999999;
   margin-top: 40rpx;
   height: 60rpx;
@@ -31,6 +41,22 @@
 .password input{
   align-self: center;
   font-size: 16px;
+}
+.username.active,
+.password.active{
+  border-bottom: 1px solid red;
+}
+  
+.tipsWrapper{
+ margin-top: 30rpx;
+ height: 30rpx;
+}
+.tips{
+  height: 30rpx;
+  line-height: 30rpx;
+  color: red;
+  font-size: 15px;
+  /* border: 1px solid red; */
 }
 .login{
   width: 80%;

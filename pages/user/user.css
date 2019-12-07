@@ -24,6 +24,10 @@ button{
   margin-left: 20rpx;
   font-weight: bold;
 }
+button.active{
+  background: transparent;
+  border: 1px solid red;
+}
 button:after{
   border: 1px solid transparent !important;
 }

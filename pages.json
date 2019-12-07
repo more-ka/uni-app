@@ -29,7 +29,7 @@
         ,{
             "path" : "pages/login/login",
             "style" : {
-              "navigationBarTitleText":"注册/登录"
+              "navigationBarTitleText":"注册"
             }
         }
         ,{
@@ -47,6 +47,7 @@
               "navigationBarTextStyle":"white"
             }
         }
+
     ],
   "globalStyle": {
     "navigationBarTextStyle": "black",

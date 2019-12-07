@@ -1,5 +1,8 @@
 <template>
   <view class="page">
+    <view class="statusBar">
+      
+    </view>
     <swiper class="swiper page-block" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500"
       :circular="true">
       <swiper-item>
