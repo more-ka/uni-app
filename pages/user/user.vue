@@ -28,6 +28,7 @@
 			}
 		},
     onLoad() {
+      uni.setStorageSync('globelUser',this.userInfo)
       let height = uni.getSystemInfoSync().windowHeight
       this.height = height
     },

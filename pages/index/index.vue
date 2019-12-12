@@ -1,7 +1,6 @@
 <template>
   <view class="page">
     <view class="statusBar">
-      
     </view>
     <swiper class="swiper page-block" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500"
       :circular="true">
@@ -35,7 +34,7 @@
         <view class="item">
           <image class="poster" src="../../static/poster/civilwar.jpg"></image>
           <view class="movieName">超级玛丽超级玛丽超级玛丽</view>
-          <score :showNum="true" :movieScore="2.7"></score>
+          <score :showNum="true" :movieScore="10.0"></score>
         </view>
         <view class="item">
           <image class="poster" src="../../static/poster/civilwar.jpg"></image>
@@ -186,7 +185,8 @@
   export default {
     data() {
       return {
-        animationData: {}
+        animationData: {},
+        e: {}
       }
     },
     onUnload() {
@@ -194,6 +194,20 @@
     },
     onLoad() {
       this.animation = uni.createAnimation()
+      uni.getSystemInfo({
+          success: (res)=> {
+              this.e = res
+              console.log(JSON.stringify(res));
+          }
+      });
+      uni.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#DD524D',
+          animation: {
+              duration: 400,
+              timingFunc: 'easeIn'
+          }
+      })
     },
     methods: {
       praise() {

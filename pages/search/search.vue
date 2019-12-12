@@ -1,12 +1,16 @@
 <template>
 	<view class="page">
-    <view class="title">搜索</view>
-		<view class="searchWrapper">
-      <view class="searchIconWrapper">
-        <image src="../../static/icos/search.png" class="searchIcon"></image>
-      </view>
-      <view class="inputWrapper">
-        <input type="text" value="" placeholder="搜索电影"/>
+    <view class="statusBar">
+    </view>
+    <view class="header">
+      <view class="title">搜索</view>
+      <view class="searchWrapper">
+        <view class="searchIconWrapper">
+          <image src="../../static/icos/search.png" class="searchIcon"></image>
+        </view>
+        <view class="inputWrapper">
+          <input type="text" value="" placeholder="搜索电影"/>
+        </view>
       </view>
     </view>
     <view class="main">

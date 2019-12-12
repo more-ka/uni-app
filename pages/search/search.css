@@ -4,6 +4,22 @@
   background: #F7F7F7;
 
 }
+  .statusBar{
+    /* #ifdef APP-PLUS */
+    display: block;
+    position: fixed;
+    height: var(--status-bar-height);
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    background: #FFFFFF;
+    /* #endif */
+  }
+  .header{
+    /* #ifdef APP-PLUS */
+    margin-top: var(--status-bar-height);
+    /* #endif */
+    }
 .title{
   font-weight: bold;
   position: fixed;
@@ -13,10 +29,6 @@
   text-align: center;
   background: #FFFFFF;
   line-height: 80rpx;
-  /* #ifdef APP-PLUS */
-  padding-top: 60rpx;
-  line-height: 80rpx;
-  /* #endif */
   }
 /* 搜索栏 */
 .searchWrapper{
@@ -28,9 +40,6 @@
   width: 95vw;
   top:200;
   margin-top: 80rpx;
-  /* #ifdef APP-PLUS */
-  margin-top: 130rpx;
-  /* #endif */
   padding-right: 20rpx;
   background: #FFFFFF;
   
@@ -64,9 +73,9 @@ input{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 140rpx;
+  margin-top: 150rpx;
   /* #ifdef APP-PLUS */
-  margin-top: 200rpx;
+  /* margin-top: 140rpx; */
   /* #endif */
 }
 

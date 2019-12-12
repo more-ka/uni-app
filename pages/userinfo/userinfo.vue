@@ -8,7 +8,7 @@
           <image src="../../static/icos/left-gray-arrow.png" class="right-icon"></image>
         </view>
       </view>
-      <view class="avatarLine line">
+      <view class="avatarLine line" @click="modifyNickname">
         <view class="title">昵称</view>
         <view class="right">
           <view class="name">测试账号</view>
@@ -54,6 +54,11 @@
       
     },
     methods: {
+      modifyNickname(){
+        uni.navigateTo({
+          url: "../modifyNickname/modifyNickname"
+        })
+      },
       changeAvatar(){
         uni.showActionSheet({
           // itemList按钮的文字接受的是数组

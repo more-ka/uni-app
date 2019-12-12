@@ -29,15 +29,20 @@
 .page{
     background: #F7F7F7;
     border: 1px solid lightslategrey;
+
+    margin-top: var(--status-bar-height);
+
 }
 .statusBar{
+
     display: block;
     position: fixed;
-    height: 60rpx;
+    height: var(--status-bar-height);
     width: 100%;
     top: 0;
     z-index: 1;
     background: #FFFFFF;
+
 }
 .page-block{
     background: #FFFFFF;
@@ -92,6 +97,7 @@
 .scroll .item{
     display: inline-block;
     margin: 20rpx;
+    margin-bottom: 30rpx;
 }
 .item .poster{
   width: 200rpx;
