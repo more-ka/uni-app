@@ -19,10 +19,21 @@
   width: 120rpx;
   height:120rpx;
 }
-button{
+.container{
+  display: flex;
+  width: 100%;
+  align-content:space-between;
+  align-items: center;
+}
+button.loginButton{
   background: transparent;
   margin-left: 20rpx;
   font-weight: bold;
+}
+.testUser{
+  margin-right: 0rpx;
+  background: transparent;
+  font-size: 14px;
 }
 button.active{
   background: transparent;

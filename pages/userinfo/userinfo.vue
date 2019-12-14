@@ -11,7 +11,7 @@
       <view class="avatarLine line" @click="modifyNickname">
         <view class="title">昵称</view>
         <view class="right">
-          <view class="name">测试账号</view>
+          <view class="name">{{userInfo.username}}</view>
           <image src="../../static/icos/left-gray-arrow.png" class="right-icon"></image>
         </view>
       </view>
@@ -42,16 +42,16 @@
     data() {
       return {
         // imageSrc: '../../static/carousel/batmanvssuperman.png',
-        userImage: ''
+        userImage: '',
+        userInfo: {}
       }
     },
     onLoad() {
       // let storage = uni.getStorageSync("globalUser")
       // this.imageSrc = storage[image]
       let userImage = uni.getStorageSync("userImage")
+      this.userInfo = uni.getStorageSync("globalUser")
       this.userImage = userImage
-      console.log(this.userImage);
-      
     },
     methods: {
       modifyNickname(){
