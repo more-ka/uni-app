@@ -56,9 +56,16 @@
             }
         }
         ,{
-            "path" : "pages/userBirthday/userBirthday",
+            "path" : "pages/modifyBirthday/modifyBirthday",
             "style" : {
               "navigationBarTitleText":"修改生日",
+              "navigationBarBackgroundColor":"#ffd655"
+            }
+        }
+        ,{
+            "path" : "pages/modifySex/modifySex",
+            "style" : {
+              "navigationBarTitleText":"性别",
               "navigationBarBackgroundColor":"#ffd655"
             }
         }

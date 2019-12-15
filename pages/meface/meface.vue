@@ -18,12 +18,12 @@
       }
     },
     onLoad(e) {
-      let fileUrl = e.fileUrl
-      this.fileUrl = fileUrl
-      uni.setStorageSync('globalUser',
-        '{"name": "测试账号","id":"123123","image":"http://localhost:8080/63bbd2b7-545b-4017-a434-572a1fbdf392"}')
-
+      // let fileUrl = e.fileUrl
+      // this.fileUrl = fileUrl
+      // uni.setStorageSync('globalUser',
+      //   '{"name": "测试账号","id":"123123","image":"http://localhost:8080/63bbd2b7-545b-4017-a434-572a1fbdf392"}')
     },
+    // 选择上传头像后, 测试账号存在问题
     methods: {
       // 重新选择头像
       again() {

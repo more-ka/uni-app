@@ -25,15 +25,17 @@
 			sureModify(){
         this.userInfo.username = this.nickname
         uni.setStorageSync('globalUser',this.userInfo)
-        uni.showToast({
-          title:'昵称修改成功',
-          icon: 'none'
-        })
-        setInterval(()=>{
+        uni.showLoading({
+          title: '修改成功, 请稍后',
+          icon: 'success',
+          mask: true
+        });
+        setTimeout(()=>{
+          uni.hideLoading()
           uni.reLaunch({
             url: '../userinfo/userinfo'
           })
-          },1500)
+          },1000)
         
       }
 		}

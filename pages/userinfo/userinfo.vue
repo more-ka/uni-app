@@ -22,10 +22,14 @@
           <image src="../../static/icos/left-gray-arrow.png" class="right-icon"></image>
         </view>
       </view>
-      <view class="sexLine line">
+      <view class="sexLine line" @click="modifySex">
         <view class="title">性别</view>
         <view class="right">
-          <view class="sex">神</view>
+          <view class="sex">
+            <text v-if="userInfo.sex==='1'">男</text>
+            <text v-else-if="userInfo.sex==='0'">女</text>
+            <text v-else>未选择</text>
+          </view>
           <image src="../../static/icos/left-gray-arrow.png" class="right-icon"></image>
         </view>
       </view>
@@ -52,6 +56,7 @@
       let userImage = uni.getStorageSync("userImage")
       this.userInfo = uni.getStorageSync("globalUser")
       this.userImage = userImage
+      console.log(this.userInfo);
     },
     methods: {
       modifyNickname(){
@@ -61,7 +66,7 @@
       },
       modifyBirthday(){
         uni.navigateTo({
-          url: "../userBirthday/userBirthday"
+          url: "../modifyBirthday/modifyBirthday"
         })
       },
       changeAvatar(){
@@ -96,9 +101,9 @@
       clearStorage(){
         // 没有后台, 所以跳回用户页面
         uni.showToast({
-          title: "请稍后...",
-          mask: true,
-          icon: "loading"
+          title: "注销成功, 请稍后",
+          icon: 'success',
+          mask: true
         })
         uni.clearStorage()
         setTimeout(function(){
@@ -106,7 +111,12 @@
           uni.reLaunch({
             url: '/pages/user/user'
           })
-        },2000)
+        },1000)
+      },
+      modifySex(){
+        uni.navigateTo({
+          url: '../modifySex/modifySex'
+        });
       }
     }
   }

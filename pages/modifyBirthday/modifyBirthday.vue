@@ -8,7 +8,7 @@
           </picker>
         </view>
       </view>
-      <button type="primary" @click="modify">确认修改</button>
+      <button type="primary" @click="sureModify">确认修改</button>
     </view>
   </view>
 </template>
@@ -39,16 +39,16 @@
       bindDateChange(e) {
         this.date = e.target.value
       },
-      modify(){
+      sureModify(){
         this.userInfo.birthday = this.date
         uni.setStorageSync('globalUser',this.userInfo)
         uni.showToast({
-          title: "生日修改成功",
-          icon: 'none'
-        })
-        uni.showLoading()
+          title: '修改成功, 请稍后',
+          icon: 'success',
+          mask: true
+        });
         setTimeout(()=>{
-          uni.hideLoading()
+          uni.hideToast()
           uni.navigateTo({
             url: '../userinfo/userinfo'
           })

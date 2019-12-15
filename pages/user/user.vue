@@ -6,7 +6,7 @@
       </view>
       <view v-if="!userInfo" class="container">
         <button @click="login" class="loginButton">注册/登录</button>
-        <button class="testUser" @click="testUser">测试账号</button>
+        <button class="testUser" @click="testUser">使用测试账号</button>
       </view>
       <view v-else class="userInfo">
         <view class="username">{{userInfo.username}}</view>
@@ -46,16 +46,21 @@
         })
       },
       testUser() {
+        
         let userInfo =  {
           "username": "测试账号",
           "userid": 53231323,
-          "birthday": '2011-1-1'
+          "birthday": '2011-1-1',
+          "sex": '-1'
         }
-        uni.setStorageSync("globalUser",userInfo)
         uni.showToast({
           title:'测试账号登录成功',
-          icon: 'none'
+          mask: true
         })
+        setTimeout(()=>{
+          uni.hideToast()
+        },1000)
+        uni.setStorageSync("globalUser",userInfo)
         this.userInfo = uni.getStorageSync('globalUser')
       }
     }
