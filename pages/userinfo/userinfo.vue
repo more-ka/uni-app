@@ -15,10 +15,10 @@
           <image src="../../static/icos/left-gray-arrow.png" class="right-icon"></image>
         </view>
       </view>
-      <view class="birthdayLine line">
+      <view class="birthdayLine line" @click="modifyBirthday">
         <view class="title">生日</view>
         <view class="right">
-          <view class="birthday">2000-10-10</view>
+          <view class="birthday">{{userInfo.birthday}}</view>
           <image src="../../static/icos/left-gray-arrow.png" class="right-icon"></image>
         </view>
       </view>
@@ -57,6 +57,11 @@
       modifyNickname(){
         uni.navigateTo({
           url: "../modifyNickname/modifyNickname"
+        })
+      },
+      modifyBirthday(){
+        uni.navigateTo({
+          url: "../userBirthday/userBirthday"
         })
       },
       changeAvatar(){

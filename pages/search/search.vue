@@ -1,5 +1,5 @@
 <template>
-	<view class="page">
+  <view class="page">
     <view class="statusBar">
     </view>
     <view class="header">
@@ -9,7 +9,7 @@
           <image src="../../static/icos/search.png" class="searchIcon"></image>
         </view>
         <view class="inputWrapper">
-          <input type="text" value="" placeholder="搜索电影"/>
+          <input type="text" value="" placeholder="搜索电影" />
         </view>
       </view>
     </view>
@@ -19,27 +19,38 @@
         <text class="movieName">{{movie.name}}</text>
       </view>
     </view>
-	</view>
+  </view>
 </template>
 
 <script>
   import search from '../../common/search.js'
-	export default {
-		data() {
-			return {
-				searchData: []
-			}
-		},
+  export default {
+    data() {
+      return {
+        searchData: []
+      }
+    },
     onReachBottom() {
       this.searchData = this.searchData.concat(search.data.rows)
     },
-    onLoad(){
+    onLoad() {
       this.searchData = search.data.rows.concat(search.data.rows)
+        // 视频搜索接口
+      // $.ajax({
+      //   type: "POST",
+      //   url: "http://www.geekicon.club/api/v1/video",
+      //   data: {
+      //     'name': '哪吒'
+      //   },
+      //   success: function(data) {
+      //     console.log(data)
+      //   }
+      // });
     },
-		methods: {
-			
-		}
-	}
+    methods: {
+
+    }
+  }
 </script>
 
 <style>

@@ -33,7 +33,7 @@
           uni.reLaunch({
             url: '../userinfo/userinfo'
           })
-          },2000)
+          },1500)
         
       }
 		}
@@ -42,9 +42,10 @@
 
 <style>
 .page{
-  height: 100vh-25px;
+  height: 90vh;
   width: 100vw;
   display: block;
+  overflow: hidden;
 }
 input{
   padding: 10rpx 16rpx;

@@ -48,7 +48,8 @@
       testUser() {
         let userInfo =  {
           "username": "测试账号",
-          "userid": 53231323
+          "userid": 53231323,
+          "birthday": '2011-1-1'
         }
         uni.setStorageSync("globalUser",userInfo)
         uni.showToast({
