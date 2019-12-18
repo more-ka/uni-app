@@ -1,0 +1,20 @@
+
+.page {
+  height: 90vh;
+  width: 100vw;
+  display: block;
+  overflow: hidden;
+}
+.radio {
+  display: block;
+  margin: 28rpx 0;
+}
+.form {
+  height: 100%;
+  display: block;
+  margin: 40rpx;
+}
+button {
+  margin-top: 40rpx;
+}
+

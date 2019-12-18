@@ -6,7 +6,10 @@
     "components/score/score",
     "pages/login/login",
     "pages/userinfo/userinfo",
-    "pages/meface/meface"
+    "pages/meface/meface",
+    "pages/modifyNickname/modifyNickname",
+    "pages/modifyBirthday/modifyBirthday",
+    "pages/modifySex/modifySex"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -18,12 +18,11 @@
       }
     },
     onLoad(e) {
-      // let fileUrl = e.fileUrl
-      // this.fileUrl = fileUrl
-      // uni.setStorageSync('globalUser',
-      //   '{"name": "测试账号","id":"123123","image":"http://localhost:8080/63bbd2b7-545b-4017-a434-572a1fbdf392"}')
+      let fileUrl = e.fileUrl
+      this.fileUrl = fileUrl
     },
-    // 选择上传头像后, 测试账号存在问题
+    
+    
     methods: {
       // 重新选择头像
       again() {
@@ -49,39 +48,6 @@
               url: '/pages/user/user'
           });
         },1500)
-        // 继续用户信息修改
-        
-        // var that = this
-        // var fileUrl = that.fileUrl
-        // // 视频16.2.1 把图片上传到服务器
-        // // 后台可能要使用express处理图片
-        // uni.uploadFile({
-        //   url: 'http://localhost:8080/userImage', //仅为示例，非真实的接口地址
-        //   filePath: that.fileUrl,
-        //   name: 'file',
-        //   success: (uploadFileRes) => {
-        //     console.log(uploadFileRes);
-        //   }
-        // });
-
-        // console.log(uni.getStorageSync("globalUser"));
-        // var globalUser = JSON.parse(uni.getStorageSync("globalUser"))
-        // fileUrl = that.fileUrl.substring(5)
-        // console.log(typeof fileUrl);
-        // globalUser['image'] = fileUrl
-        // console.log(typeof globalUser);
-        // uni.setStorageSync(`userImage`,`${fileUrl}`)
-        // console.log(uni.getStorageSync("userImage"));
-
-        // uni.request({
-        //   url: "http://localhost:8080/index",
-        //   method: "GET",
-        //   success: (res) => {
-        //   	console.log('111111111');
-        //   		console.log(res);
-        //   }
-        // })
-        // 文件上传, 没有后台, 图片也就不能上传, 不能替换
       }
     }
   }

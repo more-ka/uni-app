@@ -1,0 +1,21 @@
+
+.page{
+  height: 90vh;
+  width: 100vw;
+  display: block;
+  overflow: hidden;
+}
+input{
+  padding: 10rpx 16rpx;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.form{
+  height: 100%;
+  display: block;
+  margin: 40rpx;
+}
+button{
+  margin-top: 40rpx;
+}
+

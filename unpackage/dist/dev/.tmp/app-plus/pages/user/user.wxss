@@ -29,10 +29,29 @@
   width: 120rpx;
   height:120rpx;
 }
-button{
+.container{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-align-content:space-between;
+      -ms-flex-line-pack:justify;
+          align-content:space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+button.loginButton{
   background: transparent;
   margin-left: 20rpx;
   font-weight: bold;
+}
+.testUser{
+  margin-right: 0rpx;
+  background: transparent;
+  font-size: 14px;
 }
 button.active{
   background: transparent;
@@ -66,6 +85,5 @@ button:after{
       -ms-transform: translatey(-50%);
           transform: translatey(-50%);
 }
-.page{
-}
+.page {}
 

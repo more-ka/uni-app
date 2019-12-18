@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"page { height: 90vh; width: 100vw; display: block; overflow: hidden; }\n.",[1],"radio { display: block; margin: ",[0,28]," 0; }\n.",[1],"form { height: 100%; display: block; margin: ",[0,40],"; }\nwx-button { margin-top: ",[0,40],"; }\n",],undefined,{path:"./pages/modifySex/modifySex.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/modifySex/modifySex.wxml') } }));

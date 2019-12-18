@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"page{ height: 90vh; width: 100vw; display: block; overflow: hidden; }\nwx-input{ padding: ",[0,10]," ",[0,16],"; border: 1px solid lightgrey; border-radius: 5px; }\n.",[1],"form{ height: 100%; display: block; margin: ",[0,40],"; }\nwx-button{ margin-top: ",[0,40],"; }\n",],undefined,{path:"./pages/modifyNickname/modifyNickname.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/modifyNickname/modifyNickname.wxml') } }));
