@@ -4,12 +4,14 @@
     </view>
     <view class="header">
       <view class="title">搜索</view>
-      <view class="searchWrapper">
-        <view class="searchIconWrapper">
-          <image src="../../static/icos/search.png" class="searchIcon"></image>
-        </view>
-        <view class="inputWrapper">
-          <input type="text" v-model="searchValue" placeholder="搜索电影" confirm-type="search" @confirm="search" />
+      <view class="search">
+        <view class="searchWrapper">
+          <view class="searchIconWrapper">
+            <image src="../../static/icos/search.png" class="searchIcon"></image>
+          </view>
+          <view class="inputWrapper">
+            <input type="text" v-model="searchValue" placeholder="搜索" confirm-type="search" @confirm="search" />
+          </view>
         </view>
       </view>
     </view>
@@ -17,15 +19,20 @@
       <!-- v-bind:key="movie.id" -->
       <view class="movie" v-for="movie in responseData" :key="movie.id">
         <text class="movieName">{{movie.title}}</text>
-        {{movie.property}}
-        <view v-for="item in JSON.parse(movie.online_link)">
-          <view v-for="i in item">
-            <view v-for="o in i">
-              <!-- 解析数据 集数-链接 -->
-              <!-- i[o]--{{i[o]}} -->
+        <view class="detail">
+          <view class="movieStatus"></view>
+          <view class="movieShowtime">时间: <text class="text">{{movie.show_time}}</text></view>
+          <view class="movieDirector">导演: <text class="text">{{movie.director}}</text></view>
+          <view class="movieTypes">类型: <text class="text">{{movie.types}}</text></view>
+          <view class="movieActors">主演: <text class="text">{{movie.actors}}</text></view>
+          <view class="movieInfo">剧情: <text class="text">{{movie.info}}</text></view>
+        </view>
+        <view class="selectLink">选集</view>
+        <view v-for="(item,index) in JSON.parse(movie.online_link)" :key="index" class="playLink">
+          <view v-for="(i,index) in item" :key="index" class="playLinkItem">
+            <view v-for="(o,index) in i" :key="index" class="">
               <a :href="o">
                 {{Object.keys(i)[0]}}
-                <!-- <text :value="Object.keys(i)"></text> -->
               </a>
             </view>
           </view>
@@ -46,7 +53,7 @@
         responseData: [{
           "id": 44712,
           "title": "庆余年 第一季",
-          "status": "[更至17集]",
+          "status": "更至17集",
           "property": "",
           "types": "国产剧",
           "area": "中国",
@@ -97,14 +104,8 @@
         }]
       }
     },
-    onReachBottom() {
-      // this.searchData = this.searchData.concat(search.data.rows)
-    },
-    onLoad() {
-      // this.searchData = search.data.rows.concat(search.data.rows)
-      // let obj = [[{"第01集": "https://youku.com-zx-youku.com/share/1be8d57459a63a3275d039fa93ca5a1e"}, {"第02集": "https://youku.com-zx-youku.com/share/131799f66a96ee034181e8a54b4c0b49"}, {"第03集": "https://youku.com-zx-youku.com/share/d958bc7285c14d6f775973d6d723d17b"}]]
-      // console.log(typeof obj,'----')
-    },
+    onReachBottom() {},
+    onLoad() {},
     methods: {
       search(e) {
         console.log(e.detail.value);

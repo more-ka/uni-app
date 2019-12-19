@@ -1,3 +1,6 @@
+a{
+  box-sizing: border-box;
+}
 .page{
   display: flex;
   flex-direction: column;
@@ -19,35 +22,40 @@
     /* #ifdef APP-PLUS */
     margin-top: var(--status-bar-height);
     /* #endif */
+    height: 160rpx;
+    width: 100vw;
+    background: #FFFFFF;
+    z-index: 200;
+    position: fixed;
     }
 .title{
   font-weight: bold;
   position: fixed;
-  z-index: 200;
   /* height: 80rpx; */
   width: 100%;
   text-align: center;
-  background: #FFFFFF;
   line-height: 80rpx;
   }
 /* 搜索栏 */
+.search{
+  height: 50rpx;
+  width: 100vw;
+}
 .searchWrapper{
   display: flex;
   flex-direction: row;
-  padding:0 20rpx 20rpx 20rpx;
-  position: fixed;
-  z-index: 200;
+  margin:0 20rpx 20rpx 20rpx;
   width: 95vw;
   top:200;
   margin-top: 80rpx;
-  padding-right: 20rpx;
-  background: #FFFFFF;
-  
+  margin-right: 20rpx;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .searchIconWrapper{
   display: flex;
   align-items: center;
-  background: #EAEAEA;
+  background: #eaeaea82;
   padding: 10rpx 0;
 }
 .searchIconWrapper image{
@@ -57,41 +65,81 @@
 }
 .inputWrapper{
   flex: 1;
-  background: #EAEAEA;
+  background: #eaeaea82;
   font-size: 14px;
   padding: 10rpx 0;
 }
 input{
 }
 
-/* 电影列表 */
+/* 搜索结果 */
 .main{
-  padding: 40rpx;
+  padding: 20rpx;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 150rpx;
+  margin-top: 180rpx;
+  flex-direction: column;
   /* #ifdef APP-PLUS */
   /* margin-top: 140rpx; */
   /* #endif */
 }
 
 .movie{
-  margin-bottom: 20rpx;
+  margin-bottom: 40rpx;
   display: flex;
-  flex-direction:column;
-  border: 1px solid red;
+  flex-direction: column;
+  background: #FFFFFF;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.15);
 }
-.poster{
-  width: 200rpx;
-  height: 270rpx;
-}
+
 .movieName{
   margin-top: 6rpx;
-  font-size: 12px;
-  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+/*  text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
-  width: 200rpx;
+  white-space: nowrap; */
+}
+.detail{
+  margin-bottom: 20rpx;
+}
+.detail view{
+  color: gray;
+  font-size: 16px;
+}
+
+.detail view text{
+  color: black;
+  margin-left: 16rpx;
+}
+  
+.selectLink{
+  
+}
+.playLink{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  padding: auto;
+  margin: 0 -12rpx;
+}
+.playLinkItem{
+  /* flex: 1; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  margin: 12rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 4px;
+  border: 1px solid grey;
+}
+a{
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
 }
