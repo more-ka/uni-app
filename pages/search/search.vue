@@ -16,8 +16,7 @@
       </view>
     </view>
     <view class="main">
-      <!-- v-bind:key="movie.id" -->
-      <view class="movie" v-for="movie in responseData" :key="movie.id">
+      <view class="movie" v-for="(movie,gIndex) in responseData" :key="movie.id">
         <text class="movieName">{{movie.title}}</text>
         <view class="detail">
           <view class="movieStatus"></view>
@@ -25,9 +24,18 @@
           <view class="movieDirector">导演: <text class="text">{{movie.director}}</text></view>
           <view class="movieTypes">类型: <text class="text">{{movie.types}}</text></view>
           <view class="movieActors">主演: <text class="text">{{movie.actors}}</text></view>
-          <view class="movieInfo">剧情: <text class="text">{{movie.info}}</text></view>
+          <view class="movieInfo">剧情:
+            <text class="text" v-if="indexs.indexOf(movie.id)===-1">{{movie.info.substring(0,30)}}...</text>
+            <text class="text" v-else>{{movie.info}}</text>
+            <view class="toggleButton" @click="toggleShowInfo" :data-gIndex='movie.id'>
+              <view class="toggleShowInfo">{{indexs.indexOf(movie.id)===-1?'展开':'折叠'}}
+              </view>
+              <image v-if="indexs.indexOf(movie.id)===-1" class="toggleShowInfoIcon down"></image>
+              <image v-else class="toggleShowInfoIcon up" ></image>
+            </view>
+          </view>
         </view>
-        <view class="selectLink">选集</view>
+        <view class="selectLink">播放列表</view>
         <view v-for="(item,index) in JSON.parse(movie.online_link)" :key="index" class="playLink">
           <view v-for="(i,index) in item" :key="index" class="playLinkItem">
             <view v-for="(o,index) in i" :key="index" class="">
@@ -50,6 +58,9 @@
         searchData: [],
         searchValue: '',
         item: '',
+        currentIndex: -1,
+        indexs: [],
+        showMovieInfo: [],
         responseData: [{
           "id": 44712,
           "title": "庆余年 第一季",
@@ -123,6 +134,16 @@
             console.log(this.searchData);
           }
         });
+      },
+      toggleShowInfo(e) {
+        let gindex = e.currentTarget.dataset.gindex - 0
+        if(this.indexs.indexOf(gindex)===-1){
+          this.indexs.push(gindex)
+        }else{
+           this.indexs = this.indexs.filter((item)=> {
+               return item != gindex
+           });
+        }
       }
     }
   }

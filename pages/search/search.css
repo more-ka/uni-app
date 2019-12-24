@@ -51,11 +51,12 @@ a{
   margin-right: 20rpx;
   border-radius: 20px;
   overflow: hidden;
+  border: 1px solid #eaeaea;
+  /* background: #eaeaea82; */
 }
 .searchIconWrapper{
   display: flex;
   align-items: center;
-  background: #eaeaea82;
   padding: 10rpx 0;
 }
 .searchIconWrapper image{
@@ -65,7 +66,7 @@ a{
 }
 .inputWrapper{
   flex: 1;
-  background: #eaeaea82;
+  /* background: #eaeaea82; */
   font-size: 14px;
   padding: 10rpx 0;
 }
@@ -79,7 +80,7 @@ input{
   margin-top: 180rpx;
   flex-direction: column;
   /* #ifdef APP-PLUS */
-  /* margin-top: 140rpx; */
+  margin-top: 120px;
   /* #endif */
 }
 
@@ -102,11 +103,13 @@ input{
   overflow: hidden;
   white-space: nowrap; */
 }
+/* 视频信息 */
 .detail{
-  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #EAEAEA;
 }
 .detail view{
-  color: gray;
+  color: #848484;
   font-size: 16px;
 }
 
@@ -114,9 +117,37 @@ input{
   color: black;
   margin-left: 16rpx;
 }
-  
+.movieInfo{
+ }
+
+.toggleButton{
+  display: inline-flex;
+  align-items: center;
+}
+.toggleShowInfo{
+  color: #ffd655 !important;
+}
+.text{
+  margin-right: 30rpx;
+}
+.toggleShowInfoIcon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 6rpx;
+}
+.toggleShowInfoIcon.down{
+  background: url(../../static/icos/down.png) no-repeat 0 0;
+  background-size: cover;
+}
+.toggleShowInfoIcon.up{
+  background: url(../../static/icos/up.png) no-repeat 0 0;
+  background-size: cover;
+}
+
+/* 播放列表 */
 .selectLink{
-  
+  margin: 10rpx 0 20rpx;
+  font-size: 18px;
 }
 .playLink{
   display: flex;
