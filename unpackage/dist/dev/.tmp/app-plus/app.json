@@ -9,7 +9,8 @@
     "pages/meface/meface",
     "pages/modifyNickname/modifyNickname",
     "pages/modifyBirthday/modifyBirthday",
-    "pages/modifySex/modifySex"
+    "pages/modifySex/modifySex",
+    "pages/player/player"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -16,7 +16,7 @@
       </view>
     </view>
     <view class="main">
-      <view class="movie" v-for="(movie,gIndex) in responseData" :key="movie.id">
+      <view class="movie" v-for="(movie,gIndex) in searchData" :key="movie.id">
         <text class="movieName">{{movie.title}}</text>
         <view class="detail">
           <view class="movieStatus"></view>
@@ -39,9 +39,9 @@
         <view v-for="(item,index) in JSON.parse(movie.online_link)" :key="index" class="playLink">
           <view v-for="(i,index) in item" :key="index" class="playLinkItem">
             <view v-for="(o,index) in i" :key="index" class="">
-              <a :href="o">
+              <navigator :url="'../player/player?url='+`${o}`">
                 {{Object.keys(i)[0]}}
-              </a>
+              </navigator>
             </view>
           </view>
         </view>
@@ -120,6 +120,13 @@
     methods: {
       search(e) {
         console.log(e.detail.value);
+        if(e.detail.value===''){
+          uni.showToast({
+            title: '无搜索关键词',
+            icon: 'none'
+            })
+          return
+        }
         // 视频搜索接口
         uni.request({
           method: "POST",
