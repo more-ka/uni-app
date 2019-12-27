@@ -17,7 +17,12 @@
     },
     onLoad(e) {
       this.url = e.url
+      // 播放界面锁定横屏
       plus.screen.lockOrientation('landscape-primary')
+    },
+    onUnload() {
+      // 退出播放界面取消横屏锁定
+      plus.screen.lockOrientation('portrait-primary')
     },
     onReady: function(res) {
       // #ifndef MP-ALIPAY

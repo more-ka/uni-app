@@ -14,9 +14,11 @@
           </view>
         </view>
       </view>
+      <!-- 适配播放界面横屏样式 -->
     </view>
     <view class="main">
-      <view class="movie" v-for="(movie,gIndex) in searchData" :key="movie.id">
+      <view v-for="{seatchValue,index} in searchValues" :key="index">{{seatchValue}}</view>
+      <view class="movie" v-if="searched" v-for="(movie,gIndex) in searchData" :key="movie.id">
         <text class="movieName">{{movie.title}}</text>
         <view class="detail">
           <view class="movieStatus"></view>
@@ -46,6 +48,12 @@
           </view>
         </view>
       </view>
+      <view class="defaultMovie">
+        <view class="movie" v-for="(item,index) in searchData" :key="index">
+          <image class="movieCover" :src="item.cover"></image>
+          <text class="movieName">{{item.name}}</text>
+        </view>
+      </view>
     </view>
   </view>
 </template>
@@ -58,9 +66,11 @@
         searchData: [],
         searchValue: '',
         item: '',
+        searched: false,
         currentIndex: -1,
         indexs: [],
         showMovieInfo: [],
+        searchValues: [],
         responseData: [{
           "id": 44712,
           "title": "庆余年 第一季",
@@ -116,29 +126,47 @@
       }
     },
     onReachBottom() {},
-    onLoad() {},
+    onLoad() {
+      if(this.searchData.length===0){
+        this.searched = false
+        this.searchData = search.data.rows
+      }
+    },
     methods: {
       search(e) {
-        console.log(e.detail.value);
-        if(e.detail.value===''){
+        let searchValue = e.detail.value
+        if(searchValue===''){
           uni.showToast({
             title: '无搜索关键词',
             icon: 'none'
             })
           return
         }
+        let searchValues
+        try{
+          searchValues = uni.getStorageSync('searchValues')
+          // console.log(typeof searchValues,searchValues);
+        }catch(e){
+          searchValues = []
+        }
+        // 当输入框获取焦点之后, 展示搜索历史, 遍历搜索词去重
+        console.log(typeof searchValues)
+        searchValues.push(searchValue)
+        this.searchValues = searchValues
+        uni.setStorageSync('searchValues',searchValues)
+        console.log(this.searchValues);
+        return 
         // 视频搜索接口
         uni.request({
           method: "POST",
           url: "http://www.geekicon.club/api/v1/video",
           data: {
-            'name': e.detail.value
+            'name': searchValue
           },
           // 获取数据, 解析数据
           success: (response) => {
-            console.log(response)
+            this.searched = true
             this.searchData = response.data.data
-            console.log(this.searchData);
           }
         });
       },
