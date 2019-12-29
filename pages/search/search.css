@@ -1,7 +1,9 @@
 a {
   box-sizing: border-box;
 }
-
+*{
+  font-size: 14px;
+}
 .page {
   display: flex;
   flex-direction: column;
@@ -33,7 +35,7 @@ a {
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
-.title {
+.header .title {
   font-weight: bold;
   position: fixed;
   /* height: 80rpx; */
@@ -106,7 +108,7 @@ input {}
 
 .movieName {
   margin-top: 6rpx;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 20rpx;
   /*  text-overflow: ellipsis;
@@ -122,7 +124,7 @@ input {}
 
 .detail view {
   color: #848484;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .detail view text {
@@ -164,7 +166,7 @@ input {}
 /* 播放列表 */
 .selectLink {
   margin: 10rpx 0 20rpx;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .playLink {
@@ -195,14 +197,37 @@ a {
   font-size: 14px;
 }
 
-/* 未搜索时的默认数据 */
-.defaultMovie {
+/* 未搜索时展示的数据 */
+
+.defaultMovie .title{
+  font-weight: bold;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.defaultMovie .searchHistory{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+.defaultMovie .searchTerms{
+  background: #f3f3f3;
+  padding: 6rpx 12rpx;
+  margin: 10rpx;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 60rpx;
+  text-align: center;
+}
+
+.recommendMovie {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
 }
-.defaultMovie .movie{
+
+.recommendMovie .movie{
   flex: 1;
   width: 33%;
   margin: 10rpx;
@@ -213,16 +238,17 @@ a {
   background: transparent;
   box-shadow: none;
 }
-.defaultMovie .movieCover{
+.recommendMovie .movieCover{
   width: 200rpx;
   height: 270rpx;
 }
-.defaultMovie .movieName{
-  font-size: 12px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 200rpx;
+.recommendMovie .movieName{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 200rpx;
+}
+.recommendMovie .text{
 }
 
 

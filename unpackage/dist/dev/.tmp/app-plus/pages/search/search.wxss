@@ -38,7 +38,7 @@
   -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
-.title {
+.header .title {
   font-weight: bold;
   position: fixed;
   /* height: 80rpx; */
@@ -46,7 +46,6 @@
   text-align: center;
   line-height: 80rpx;
 }
-
 /* 搜索栏 */
 .search {
   height: 50rpx;
@@ -98,7 +97,6 @@
   padding: 10rpx 0;
 }
 input {}
-
 /* 搜索结果 */
 .main {
   padding: 20rpx;
@@ -135,14 +133,13 @@ input {}
 }
 .movieName {
   margin-top: 6rpx;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 20rpx;
   /*  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap; */
 }
-
 /* 视频信息 */
 .detail {
   padding-bottom: 20rpx;
@@ -150,7 +147,7 @@ input {}
 }
 .detail view {
   color: #848484;
-  font-size: 16px;
+  font-size: 14px;
 }
 .detail view text {
   color: black;
@@ -186,11 +183,10 @@ input {}
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMcAAADICAYAAABcU/UTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAxOToxMjoyNCAxNzo1Nzo1NRYNu0oAAAUKSURBVHhe7dq9bh1FGIDhHduSCxqK5BYIxC0XEPqUDlJughKKpEyK0HIRSOAyEiVcQFpbCpeAESVSJNvDHjNLcOKfs7sz+/s8jc86dmzN973Z4xNXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMQ0ltGEt88vRf3zx+EvXgQY9wL5/Ek7ofjnc+OTtOHMBJxjOji+PBZCOFFuryiDuX5zsHRy3TJCMQxgovfDx9W5+FViNXj9K5rxVC9rnbjd/Vd5CS9iwGJY2CXYZyFn+qDP0jvulWsquNqL34tkOGJY0Btw2gIZBziGEjXMBoCGZ44BtA3jIZAhiWOwnKF0RDIcMRRUO4wGgIZhjgKKRVGQyDliaOA0mE0BFKWODIbKoyGQMoRR0ZDh9EQSBniyGSsMBoCyU8cGYwdRkMgeYmjp6mE0RBIPuLoYWphNASShzg6mmoYDYH0J44Oph5GQyD9iKOlEmHEKv5Vj+KX+tEn9dtH9d/9afqj3gTSnThaKBPG1eUd4muwHXFsacilFcg0iGMLYyyrQMYnjjuMuaQCGZc4bjGF5RTIeMRxgyktpUDGIY5rTHEZBTI8cXxgyksokGGJ43/msHwCGY44kjktnUCGIY7aHJdNIOWtPo45L5lAylp1HEtYLoGUs9o4lrRUAiljlXEscZkEkt/q4ljyEgkkr1XFsYblEUg+q4ljTUsjkDxWEccal0Ug/S0+jjUviUD6WXQclsMZ9LHYOCzFe86im0XGYRk+5kzaW1wcluBmzqadRcVh+HdzRttbTByGvj1ntZ1FxGHY7Tmzu80+DkPuztndbtZxGG5/zvBms43DUPNxltebZRyGmZ8z/djs4jDEcpztVbOKw/DKc8bvzSYOQxuOs/7XLOIwrOE58xnEYUjjWfvZTzoOYYxvzTOYbBzCmI61zmKScQhjetY4k8nFIYzpWttsJhWHMKZvTTOaTBzCmI+1zGoScQhjftYws9HjEMZ8LX12o8YhjPlb8gxHi0MYy7HUWY4ShzCWZ4kzHTwOYSzX0mY7aBzCWL4lzXiwOISxHkuZ9SBxCGN9ljDz4nEIY73mPvuicQiDOe9AsTiEQWOuu1AkDmHwoTnuRPY4hMFN5rYbWeMQBneZ045ki0MYbGsuu5IlDmHQ1hx2pnccwqCrqe9OrziEQV9T3qHOcQiDXKa6S53iEAa5TXGndtLbds7DK2GQ0+Xs6x243IVMLne03tV02VrrOC6OD5+FWD1Ol70Jg0aRQOpd3exsumyl1dOq+tZ3P5yFP9Jlb8LgOiWeYlV/790PX/74Z7raSqs7R3gXPZWiuBJ3kLh//iA93FqrOOJueJge9iIM7pI7kLDX/h/2bj+Q9yAMtlXiDtJGu6dV57HXQguDtnIFEs9C689v97Rqv/0XaAiDrnIEEt7tvk0Pt9YqjvqbPI0hfpMutyYM+uoTSP0537d9pWqj1Uu5jYvjJ7+GUD1Kl7cSBjm1fZk3xvh25+Do83TZSqcfyHcOfv5q80XT5Y1iqF4Lg5z+u4NsdusOMVa/dQ1jo9Odo3Fx8mTzayTfpssr6nie19/Yy3QJ2V3+tkYIL9LlFZun/ztfHP2QLjvpFcdGfPP03uY/WDavI9dB7G1e0dr84F4Xfpo+BIqxfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMC6VdU/rc/+ACpuvhIAAAAASUVORK5CYII=) no-repeat 0 0;
   background-size: cover;
 }
-
 /* 播放列表 */
 .selectLink {
   margin: 10rpx 0 20rpx;
-  font-size: 18px;
+  font-size: 14px;
 }
 .playLink {
   display: -webkit-box;
@@ -239,9 +235,37 @@ input {}
   text-decoration: none;
   font-size: 14px;
 }
-
-/* 未搜索时的默认数据 */
-.defaultMovie {
+/* 未搜索时展示的数据 */
+.defaultMovie .title{
+  font-weight: bold;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.defaultMovie .searchHistory{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+.defaultMovie .searchTerms{
+  background: #f3f3f3;
+  padding: 6rpx 12rpx;
+  margin: 10rpx;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 60rpx;
+  text-align: center;
+}
+.recommendMovie {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -259,7 +283,7 @@ input {}
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.defaultMovie .movie{
+.recommendMovie .movie{
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
@@ -284,16 +308,17 @@ input {}
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-.defaultMovie .movieCover{
+.recommendMovie .movieCover{
   width: 200rpx;
   height: 270rpx;
 }
-.defaultMovie .movieName{
-  font-size: 12px;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 200rpx;
+.recommendMovie .movieName{
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 200rpx;
+}
+.recommendMovie .text{
 }
 
