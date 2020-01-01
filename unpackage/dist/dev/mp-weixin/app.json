@@ -3,7 +3,14 @@
     "pages/index/index",
     "pages/search/search",
     "pages/user/user",
-    "components/score/score"
+    "components/score/score",
+    "pages/login/login",
+    "pages/userinfo/userinfo",
+    "pages/meface/meface",
+    "pages/modifyNickname/modifyNickname",
+    "pages/modifyBirthday/modifyBirthday",
+    "pages/modifySex/modifySex",
+    "pages/player/player"
   ],
   "subPackages": [],
   "window": {
@@ -38,6 +45,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap7.json"
+  "usingComponents": {}
 }

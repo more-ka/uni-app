@@ -26,14 +26,14 @@
         this.userInfo.username = this.nickname
         uni.setStorageSync('globalUser',this.userInfo)
         uni.showLoading({
-          title: '修改成功, 请稍后',
-          icon: 'success',
+          title: '修改成功',
+          icon: 'loading',
           mask: true
         });
         setTimeout(()=>{
           uni.hideLoading()
-          uni.reLaunch({
-            url: '../userinfo/userinfo'
+          uni.navigateBack({
+            delta: 1
           })
           },1000)
         

@@ -46,16 +46,16 @@
         }
         this.userInfo.sex = this.sex
         uni.showLoading({
-          title: '修改成功, 请稍后',
-          icon: 'success',
+          title: '修改成功',
+          icon: 'loading',
           mask: true
         });
         uni.setStorageSync('globalUser', this.userInfo)
         setTimeout(() => {
           uni.hideLoading()
-          uni.navigateTo({
-            url: '../userinfo/userinfo'
-          });
+          uni.navigateBack({
+            delta: 1
+          })
         }, 1000);
       }
     }

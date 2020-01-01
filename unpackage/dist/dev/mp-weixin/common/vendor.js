@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 1:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -1508,7 +1508,115 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 14:
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -7470,7 +7578,8 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
+
+/***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -7500,7 +7609,191 @@ module.exports = g;
 
 
 /***/ }),
-/* 4 */
+
+/***/ 36:
+/*!****************************************************!*\
+  !*** D:/HTML/2019/movieRecommend/common/search.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+module.exports = {
+  "status": 200,
+  "msg": "OK",
+  "data": {
+    "page": 1,
+    "total": 6,
+    "records": 50,
+    "rows": [
+    {
+      "id": "xman-1010",
+      "name": "X战警：新变种人",
+      "poster": "http://122.152.205.72:88/superhero/xman/TheNewMutants/poster.png",
+      "cover": "http://122.152.205.72:88/superhero/xman/TheNewMutants/cover.png",
+      "trailer": "http://122.152.205.72:88/superhero/xman/TheNewMutants/trailer.mp4",
+      "score": 0,
+      "prisedCounts": 123,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：xman: The New Mutants",
+      "releaseDate": "上映时间：2019-08-02(美国)",
+      "totalTime": "影片时长：未知",
+      "plotDesc": "二十世纪福斯准备拓展“X战警”系列，立项《新变种人》，找来导演乔什·布恩自编自导。《新变种人》算是《X战警》漫画比较冷门的分支(死侍首次在这里亮相)，角色都是X教授和万磁王的学生，能力比较特别、奇怪。《逆转未来》中的太阳黑子和闪烁在漫画中曾是新变种人成员",
+      "directors": "[\"\"]",
+      "actors": "['']",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/xman/TheNewMutants/photos/1.png\",\"http://122.152.205.72:88/superhero/xman/TheNewMutants/photos/2.png\",\"http://122.152.205.72:88/superhero/xman/TheNewMutants/photos/3.png\",\"http://122.152.205.72:88/superhero/xman/TheNewMutants/photos/4.png\"]",
+      "createTime": "2019-08-02T07:40:37.000+0000" },
+
+    {
+      "id": "xman-1004",
+      "name": "X战警：黑凤凰",
+      "poster": "http://122.152.205.72:88/superhero/xman/DarkPhoenix/poster.png",
+      "cover": "http://122.152.205.72:88/superhero/xman/DarkPhoenix/cover.png",
+      "trailer": "http://122.152.205.72:88/superhero/xman/DarkPhoenix/trailer.mp4",
+      "score": 0,
+      "prisedCounts": 1573,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：xman: Dark Phoenix",
+      "releaseDate": "上映时间：2019-06-07(美国)",
+      "totalTime": "影片时长：未知",
+      "plotDesc": "在《X战警：黑凤凰》中，X战警将面临他们最强大又可怕的敌人：他们的一位成员——琴·葛蕾。在一次太空救援任务中，琴被一股神秘的宇宙力量击中险些死亡。返回家中后，这股力量令她变得无比强大的同时也极不稳定。琴在与体内能量搏斗期间释放了自己无法控制也无法领会的力量。随着不断失去控制，琴伤害了她的至亲之人。这一举动割裂了维系X战警的纽带。现在随着X战警家族渐渐分崩离析，他们必须找到办法重新团结一心——不仅为拯救琴的灵魂，更为地球的安全。因为外星势力正意图武器化琴体内的力量并以此统治银河系",
+      "directors": "[\"s-1019\"]",
+      "actors": "[\"s-1020\",\"s-1012\",\"s-1013\",\"s-1014\",\"s-1015\"]",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/xman/DarkPhoenix/photos/1.png\",\"http://122.152.205.72:88/superhero/xman/DarkPhoenix/photos/2.png\",\"http://122.152.205.72:88/superhero/xman/DarkPhoenix/photos/3.png\",\"http://122.152.205.72:88/superhero/xman/DarkPhoenix/photos/4.png\",\"http://122.152.205.72:88/superhero/xman/DarkPhoenix/photos/5.png\"]",
+      "createTime": "2019-06-07T07:40:37.000+0000" },
+
+    {
+      "id": "marvel-1006",
+      "name": "复仇者联盟4：终局之战",
+      "poster": "http://122.152.205.72:88/superhero/MARVEL/Avengers4/poster.png",
+      "cover": "http://122.152.205.72:88/superhero/MARVEL/Avengers4/cover.png",
+      "trailer": "http://122.152.205.72:88/superhero/MARVEL/Avengers4/trailer.mp4",
+      "score": 0,
+      "prisedCounts": 6666,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：Avengers: Endgame",
+      "releaseDate": "上映时间：2019-05(中国大陆)",
+      "totalTime": "影片时长：未知",
+      "plotDesc": "《复仇者联盟4》（Untitled Avengers film）是未上映的美国超级英雄电影，改编自漫威漫画，也是漫威电影宇宙第22部影片。由安东尼·罗素和乔·罗素执导，小罗伯特·唐尼、乔什·布洛林、马克·鲁法洛、汤姆·希德勒斯顿、克里斯·埃文斯、汤姆·赫兰德等主演。最终定档于2019年5月3日在美国上映",
+      "directors": "['']",
+      "actors": "['']",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/1.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/2.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/3.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/4.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/5.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/6.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/7.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/8.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/9.png\",\"http://122.152.205.72:88/superhero/MARVEL/Avengers4/photos/10.png\"]",
+      "createTime": "2019-05-10T07:40:37.000+0000" },
+
+    {
+      "id": "dc-1011",
+      "name": "沙赞",
+      "poster": "http://122.152.205.72:88/superhero/DC/Shazam/poster.jpg",
+      "cover": "http://122.152.205.72:88/superhero/DC/Shazam/cover.jpg",
+      "trailer": "http://122.152.205.72:88/superhero/DC/Shazam/trailer.mp4",
+      "score": 0,
+      "prisedCounts": 4218,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：Shazam",
+      "releaseDate": "上映时间： 2019-04-05(美国)",
+      "totalTime": "影片时长：未知",
+      "plotDesc": "每个人身体里都潜藏着一位超级英雄，只需要一点魔力便能将其释放。14岁的街头小混混比利·巴特森(亚瑟·安其饰)通过大喊“沙赞”这个词，就可以变身为成年超级英雄沙赞(扎克瑞·莱维饰)，这是一种来自于古老巫师的恩惠。如神一般的肌肉身体里，仍存有一颗孩子心，他开心地与超能力为伴。他能飞吗？他能X光透视吗？他能从手中射出闪电吗？他能不用再考试了吗？沙赞以孩子般轻率又鲁莽的方式，开始测试他的能力极限。但他需要尽快掌握这些力量，以对抗塞迪斯·希瓦纳博士控制的邪恶势力。",
+      "directors": "['']",
+      "actors": "['']",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/DC/Shazam/photos/1.jpg\",\"http://122.152.205.72:88/superhero/DC/Shazam/photos/2.jpg\",\"http://122.152.205.72:88/superhero/DC/Shazam/photos/3.jpg\",\"http://122.152.205.72:88/superhero/DC/Shazam/photos/4.jpg\",\"http://122.152.205.72:88/superhero/DC/Shazam/photos/5.jpg\"]",
+      "createTime": "2019-04-05T07:40:37.000+0000" },
+
+    {
+      "id": "marvel-1011",
+      "name": "惊奇队长",
+      "poster": "http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/poster.png",
+      "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/cover.png",
+      "trailer": "http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/trailer.mp4",
+      "score": 0,
+      "prisedCounts": 555,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：Captain Marvel",
+      "releaseDate": "上映时间：2019-03-08(美国)",
+      "totalTime": "影片时长：未知",
+      "plotDesc": "漫画中的初代“惊奇女士”原名Carol Danvers，她曾经是一名美国空军情报局探员，暗恋惊奇先生。此后她得到了超能力，成为“惊奇女士”，在漫画中是非常典型的女性英雄人物。 ",
+      "directors": "['']",
+      "actors": "['']",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/photos/1.png\",\"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/photos/2.png\",\"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/photos/3.png\",\"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/photos/4.png\",\"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/photos/5.png\"]",
+      "createTime": "2019-03-08T07:40:37.000+0000" },
+
+    {
+      "id": "dc-1001",
+      "name": "海王",
+      "poster": "http://122.152.205.72:88/superhero/DC/Aquaman/poster.jpg",
+      "cover": "http://122.152.205.72:88/superhero/DC/Aquaman/cover.jpg",
+      "trailer": "http://122.152.205.72:88/superhero/DC/Aquaman/trailer.mp4",
+      "score": 8.2,
+      "prisedCounts": 2678,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：Aquaman‎",
+      "releaseDate": "上映时间：2018-12-07(中国大陆)",
+      "totalTime": "影片时长：143分钟（中国大陆）",
+      "plotDesc": "华纳兄弟影片公司与导演温子仁联手为您呈现波澜壮阔的动作冒险电影——《海王》！横跨七大洋的广阔海底世界徐徐展开，给观众带来震撼十足的视觉奇观。本片由杰森·莫玛领衔主演，讲述半人半亚特兰蒂斯血统的亚瑟·库瑞踏上永生难忘的征途——他不但需要直面自己的特殊身世，更不得不面对生而为王的考验：自己究竟能否配得上“海王”之名。",
+      "directors": "['']",
+      "actors": "['']",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/DC/Aquaman/photos/1.jpg\",\"http://122.152.205.72:88/superhero/DC/Aquaman/photos/2.jpg\",\"http://122.152.205.72:88/superhero/DC/Aquaman/photos/3.jpg\",\"http://122.152.205.72:88/superhero/DC/Aquaman/photos/4.jpg\",\"http://122.152.205.72:88/superhero/DC/Aquaman/photos/5.jpg\",\"http://122.152.205.72:88/superhero/DC/Aquaman/photos/6.jpg\",\"http://122.152.205.72:88/superhero/DC/Aquaman/photos/7.jpg\"]",
+      "createTime": "2018-12-07T07:40:37.000+0000" },
+
+    {
+      "id": "marvel-1026",
+      "name": "毒液：致命守护者",
+      "poster": "http://122.152.205.72:88/superhero/MARVEL/Venom/poster.png",
+      "cover": "http://122.152.205.72:88/superhero/MARVEL/Venom/cover.png",
+      "trailer": "http://122.152.205.72:88/superhero/MARVEL/Venom/trailer.mp4",
+      "score": 8.9,
+      "prisedCounts": 7892,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：Venom",
+      "releaseDate": "上映时间：2018-11-09(中国大陆)",
+      "totalTime": "影片时长：112分钟",
+      "plotDesc": "艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯 Michelle Williams 饰）相恋多年，彼此之间感情十分要好。安妮是一名律师，接手了生命基金会的案件，在女友的邮箱里，艾迪发现了基金会老板德雷克（里兹·阿迈德 Riz Ahmed 饰）不为人知的秘密。为此，艾迪不仅丢了工作，女友也离他而去",
+      "directors": "['']",
+      "actors": "['']",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/MARVEL/Venom/photos/1.png\",\"http://122.152.205.72:88/superhero/MARVEL/Venom/photos/2.png\",\"http://122.152.205.72:88/superhero/MARVEL/Venom/photos/3.png\",\"http://122.152.205.72:88/superhero/MARVEL/Venom/photos/4.png\",\"http://122.152.205.72:88/superhero/MARVEL/Venom/photos/5.png\"]",
+      "createTime": "2018-11-09T07:40:37.000+0000" },
+
+    {
+      "id": "marvel-1002",
+      "name": "蚁人2: 黄蜂女现身",
+      "poster": "http://122.152.205.72:88/superhero/MARVEL/AntMan2/poster.png",
+      "cover": "http://122.152.205.72:88/superhero/MARVEL/AntMan2/cover.png",
+      "trailer": "http://122.152.205.72:88/superhero/MARVEL/AntMan2/trailer.mp4",
+      "score": 7.3,
+      "prisedCounts": 5932,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：Ant-Man and the Wasp",
+      "releaseDate": "上映时间：2018-08-24(中国大陆)",
+      "totalTime": "影片时长：118分钟",
+      "plotDesc": "来自漫威电影宇宙的新片《蚁人2：黄蜂女现身》重点展现了两位超级英雄令人惊叹的收缩能力。继《美国队长3》的故事线之后，斯科特·朗迎来了自己作为超级英雄和孩子父亲的双重身份。一方面，他在背负着蚁人职责的同时努力过好自己的生活；另一方面，二代黄蜂女霍普·凡·戴恩和汉克·皮姆博士又向他传达了一项紧迫的新任务。斯科特必须再次穿上战衣，与黄蜂女并肩作战，共同破解来自过去的谜题",
+      "directors": "['']",
+      "actors": "['']",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/MARVEL/AntMan2/photos/1.png\",\"http://122.152.205.72:88/superhero/MARVEL/AntMan2/photos/2.png\",\"http://122.152.205.72:88/superhero/MARVEL/AntMan2/photos/3.png\",\"http://122.152.205.72:88/superhero/MARVEL/AntMan2/photos/4.png\",\"http://122.152.205.72:88/superhero/MARVEL/AntMan2/photos/5.png\"]",
+      "createTime": "2018-08-24T07:40:37.000+0000" },
+
+    {
+      "id": "xman-1006",
+      "name": "X战警：死侍2",
+      "poster": "http://122.152.205.72:88/superhero/xman/Deadpool2/poster.png",
+      "cover": "http://122.152.205.72:88/superhero/xman/Deadpool2/cover.png",
+      "trailer": "http://122.152.205.72:88/superhero/xman/Deadpool2/trailer.mp4",
+      "score": 7.8,
+      "prisedCounts": 5963,
+      "basicInfo": "2018 / 美国 / 科幻 / 超级英雄",
+      "originalName": "原名：xman: Deadpool2",
+      "releaseDate": "上映时间：2018-05-18(美国)",
+      "totalTime": "影片时长：119分钟",
+      "plotDesc": "漫威史上最贱的雇佣兵死侍再度归来！本与女友过着幸福生活的死侍（瑞安·雷诺兹 饰）上门寻仇，美好生活岌岌可危。然而悲惨的日子还没结束，死侍还和想要接纳他的X战警剪不断，理还乱。就在这位平日里插科打诨的英雄人生跌入谷底之时，一位强大的时空穿越者——电索（乔什·布洛林 饰）却盯上了死侍想要保护的少年。为迎强敌，死侍广发英雄帖，临时组建了X特攻队。就凭他们真的能打过这位来自未来的敌人么？",
+      "directors": "[\"s-1001\"]",
+      "actors": "[\"s-1002\",\"s-1003\",\"s-1004\",\"s-1005\",\"s-1006\"]",
+      "plotPics": "[\"http://122.152.205.72:88/superhero/xman/Deadpool2/photos/1.png\",\"http://122.152.205.72:88/superhero/xman/Deadpool2/photos/2.png\",\"http://122.152.205.72:88/superhero/xman/Deadpool2/photos/3.png\",\"http://122.152.205.72:88/superhero/xman/Deadpool2/photos/4.png\",\"http://122.152.205.72:88/superhero/xman/Deadpool2/photos/5.png\"]",
+      "createTime": "2018-05-18T07:40:37.000+0000" }],
+
+
+    "userdata": null } };
+
+/***/ }),
+
+/***/ 4:
 /*!**********************************************!*\
   !*** D:/HTML/2019/movieRecommend/pages.json ***!
   \**********************************************/
@@ -7511,7 +7804,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /*!*******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
   \*******************************************************/
@@ -8397,7 +8691,8 @@ main();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /*!******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
   \******************************************************/
@@ -8407,7 +8702,8 @@ main();
 module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.0.0-24220191115004","_inBundle":false,"_integrity":"sha512-UKnpiHSP7h9c5IFpJFkWkpm1KyWz9iHj1hchrQSUxPhChx+KPOmunnQcKGiQvvBz9CeSi7Se/eauJYha5ch0kw==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"@dcloudio/uni-stat@next","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"next","saveSpec":null,"fetchSpec":"next"},"_requiredBy":["#USER","/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-24220191115004.tgz","_shasum":"5848f2204f37daaf8c340fb27d9f76b16fcbfdeb","_spec":"@dcloudio/uni-stat@next","_where":"/Users/guoshengqiang/Documents/dcloud-plugins/release/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"bcf65737c5111d47398695d3db8ed87305df346e","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-24220191115004"};
 
 /***/ }),
-/* 7 */
+
+/***/ 7:
 /*!***************************************************************!*\
   !*** D:/HTML/2019/movieRecommend/pages.json?{"type":"style"} ***!
   \***************************************************************/
@@ -8415,10 +8711,11 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "usingComponents": { "score": "/components/score/score" } }, "pages/search/search": { "usingComponents": {} }, "pages/user/user": { "usingComponents": {} }, "components/score/score": { "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "电影推荐", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": {}, "pages/search/search": {}, "pages/user/user": {}, "components/score/score": {}, "pages/login/login": { "navigationBarTitleText": "注册" }, "pages/userinfo/userinfo": { "navigationBarTitleText": "个人信息", "navigationBarBackgroundColor": "#ffd655" }, "pages/meface/meface": { "navigationBarTitleText": "上传图片", "navigationBarBackgroundColor": "#000000", "navigationBarTextStyle": "white" }, "pages/modifyNickname/modifyNickname": { "navigationBarTitleText": "修改昵称", "navigationBarBackgroundColor": "#ffd655" }, "pages/modifyBirthday/modifyBirthday": { "navigationBarTitleText": "修改生日", "navigationBarBackgroundColor": "#ffd655" }, "pages/modifySex/modifySex": { "navigationBarTitleText": "性别", "navigationBarBackgroundColor": "#ffd655" }, "pages/player/player": { "navigationBarTitleText": "视频详情", "navigationBarBackgroundColor": "#ffffff", "navigationBarTextStyle": "white" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "电影推荐", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
-/* 8 */
+
+/***/ 8:
 /*!**************************************************************!*\
   !*** D:/HTML/2019/movieRecommend/pages.json?{"type":"stat"} ***!
   \**************************************************************/
@@ -8428,117 +8725,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__C0E0F5D" };exports.default = _default;
 
-/***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

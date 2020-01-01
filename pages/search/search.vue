@@ -67,7 +67,7 @@
     </view>
   </view>
 </template>
-
+// 修改个人信息后, 返回页面层级错误
 <script>
   import search from '../../common/search.js'
   export default {
@@ -81,7 +81,7 @@
         currentIndex: -1,
         indexs: [],
         showMovieInfo: [],
-        searchValues: ['庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年','庆余年']
+        searchValues: []
       }
     },
     onShow() {

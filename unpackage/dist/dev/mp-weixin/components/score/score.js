@@ -168,7 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 42:
+/***/ 47:
 /*!*********************************************************************************!*\
   !*** D:/HTML/2019/movieRecommend/main.js?{"page":"components%2Fscore%2Fscore"} ***!
   \*********************************************************************************/
@@ -185,5 +185,5 @@ createPage(_score.default);
 
 /***/ })
 
-},[[42,"common/runtime","common/vendor"]]]);
+},[[47,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/components/score/score.js.map
