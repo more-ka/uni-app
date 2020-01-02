@@ -31,7 +31,7 @@
         <text>热门超英</text>
       </view>
       <scroll-view scroll-x="true" class="scroll">
-        <view class="item">
+        <view class="item" @click="previewPicture">
           <image class="poster" src="../../static/poster/civilwar.jpg"></image>
           <view class="movieName">超级玛丽超级玛丽超级玛丽</view>
           <score :showNum="true" :movieScore="10.0"></score>
@@ -69,9 +69,12 @@
         <image src="../../static/icos/interest.png"></image>
         <text>热门预告</text>
       </view>
+
+
+
       <view class="movies">
-        <video poster="http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png" src="http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"></video>
-        <video poster="http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png" src="http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"></video>
+        <video v-for="(item,index) in trailer" :key="index" class="Trailer" :data-id="item.id" :poster="item.poster"
+          :src="item.src" @play="playing" :id="item.id"></video>
       </view>
     </view>
     <view class="guess-u-like page-block">
@@ -95,8 +98,8 @@
           </view>
         </view>
       </view>
-      </view>
     </view>
+  </view>
   </view>
 </template>
 <!-- 解决视频可以同时播放的问题 -->
@@ -108,6 +111,17 @@
         animationData: {},
         animationArr: [{}, {}, {}, {}, {}],
         e: {},
+        currentId: 0,
+        videoContent: "",
+        trailer: [{
+          "id": "123",
+          "poster": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png",
+          "src": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"
+        }, {
+          "id": "456",
+          "poster": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png",
+          "src": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"
+        }],
         mockData: [{
           "movieTitle": "秦时明月之沧海横流",
           "movieScore": 10,
@@ -146,6 +160,18 @@
         }]
       }
     },
+    onReady() {
+      this.videoContent = uni.createVideoContext('Trailer')
+    },
+    onHide() {
+      // 页面隐藏时暂停视频
+      this.videoContent.pause()
+    },
+    onShow() {
+      if (this.videoContent) {
+        this.videoContent.play()
+      }
+    },
     onUnload() {
       this.animationData = {}
       this.animationArr = [{}, {}, {}, {}, {}]
@@ -170,6 +196,28 @@
       })
     },
     methods: {
+      playing(e) {
+        let currentId = e.currentTarget.dataset.id
+        this.videoContent = uni.createVideoContext(currentId)
+        let trailer = this.trailer
+        for (let i = 0; i < trailer.length; i++) {
+          let temp = trailer[i].id
+          if (temp !== currentId) {
+            uni.createVideoContext(temp).pause()
+          }
+        }
+      },
+      previewPicture() {
+        let url = "../../static/carousel/batmanvssuperman.png"
+        let arr = []
+        arr.push(url)
+        uni.previewImage({
+          urls: arr,
+          success: function(res) {
+            console.log('ojbk');
+          }
+        })
+      },
       praise(e) {
         // #ifdef APP-PLUS || MP-WEIXIN
         let gIndex = e.currentTarget.dataset.index
