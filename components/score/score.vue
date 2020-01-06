@@ -1,7 +1,7 @@
 <template name="score">
   <view class="movieScore">
       <image v-for="yellow in yellowStar" :key="yellow" src="../../static/icos/star-yellow.png" calss="starIcon"></image>
-      <image v-for="grey in greyStar" src="../../static/icos/star-gray.png" class="starIcon"></image>
+      <image v-for="grey in greyStar" :key="grey" src="../../static/icos/star-gray.png" class="starIcon"></image>
     <view class="movieNum" v-if="showNum">{{movieScore}}</view>
   </view>
 </template>
@@ -12,7 +12,7 @@
     data() {
       return {
         yellowStar: 0,
-        greyStar: 5
+        greyStar: 5,
       }
     },
     props: {
@@ -38,18 +38,18 @@
   .movieScore {
     display: flex;
     flex-direction: row;
-    height: 20rpx;
+    height: 40rpx;
     align-items: center;
   }
 
   .movieScore image {
-    width: 20rpx;
-    height: 20rpx;
+    width: 30rpx;
+    height: 30rpx;
   }
 
   .movieScore .movieNum {
     margin-left: 20rpx;
-    font-size: 12px;
+    font-size: 16px;
     color: #808080;
   }
 </style>

@@ -80,16 +80,18 @@
     <view class="guess-u-like page-block">
       <view class="title">
         <image src="../../static/icos/guess-u-like.png"></image>
-        <text>猜你喜欢</text>
+        <text>豆瓣TOP榜</text>
       </view>
-      <view class="guessLikeMovies" v-for="(item,index) in mockData" :key="index">
+      <view class="guessLikeMovies" v-for="(item,index) in toplist" :key="index">
         <view class="likeMovie">
-          <image :src="item.cover" mode=""></image>
+          <!-- <image :src="item.images.medium" mode=""></image> -->
           <view class="movieDetail">
-            <view class="movieTitle">{{item.movieTitle}}</view>
-            <score :showNum="false" :movieScore="item.movieScore"></score>
-            <view class="movieCategory">{{item.movieCategory}}</view>
-            <view class="movieTime">{{item.movieTime}}</view>
+            <view class="movieTitle">{{item.title}}</view>
+            <score :showNum="true" :movieScore="item.rating.average">{{item.rating.average}}</score>
+            <text class="movieTime" space="nbsp">{{item.year}} / \n</text>
+            <text class="movieCategory" v-for="(i,index) in item.genres" space="nbsp" :key="index"> {{i}} \n</text><text space="nbsp">\n</text>
+            <text class="movieCategory" v-for="(i,index) in item.directors" :key="index">{{i.name}} / \n</text>
+            <text class="movieCategory" v-for="(i,index) in item.casts" :key="index">{{i.name}} \n</text>
           </view>
           <view class="praise" @click="praise" :data-index="index">
             <image :src="item.src" class="icon"></image>
@@ -110,9 +112,9 @@
       return {
         animationData: {},
         animationArr: [{}, {}, {}, {}, {}],
-        e: {},
         currentId: 0,
         videoContent: "",
+        toplist: [],
         trailer: [{
           "id": "123",
           "poster": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png",
@@ -121,42 +123,6 @@
           "id": "456",
           "poster": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png",
           "src": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4"
-        }],
-        mockData: [{
-          "movieTitle": "秦时明月之沧海横流",
-          "movieScore": 10,
-          "movieCategory": "2018 / 美国 / 科幻 / 超级英雄",
-          "movieTime": "上映时间：2014-04-04(美国/中国大陆)",
-          "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png",
-          "src": "../../static/icos/praise.png"
-        }, {
-          "movieTitle": "秦时明月之沧海横流",
-          "movieScore": 10,
-          "movieCategory": "2018 / 美国 / 科幻 / 超级英雄",
-          "movieTime": "上映时间：2014-04-04(美国/中国大陆)",
-          "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png",
-          "src": "../../static/icos/praise.png"
-        }, {
-          "movieTitle": "秦时明月之沧海横流",
-          "movieScore": 10,
-          "movieCategory": "2018 / 美国 / 科幻 / 超级英雄",
-          "movieTime": "上映时间：2014-04-04(美国/中国大陆)",
-          "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png",
-          "src": "../../static/icos/praise.png"
-        }, {
-          "movieTitle": "秦时明月之沧海横流",
-          "movieScore": 10,
-          "movieCategory": "2018 / 美国 / 科幻 / 超级英雄",
-          "movieTime": "上映时间：2014-04-04(美国/中国大陆)",
-          "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png",
-          "src": "../../static/icos/praise.png"
-        }, {
-          "movieTitle": "秦时明月之沧海横流",
-          "movieScore": 10,
-          "movieCategory": "2018 / 美国 / 科幻 / 超级英雄",
-          "movieTime": "上映时间：2014-04-04(美国/中国大陆)",
-          "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png",
-          "src": "../../static/icos/praise.png"
         }]
       }
     },
@@ -177,15 +143,25 @@
       this.animationArr = [{}, {}, {}, {}, {}]
     },
     onLoad() {
+      let that = this
       // #ifdef APP-PLUS || MP-WEIXIN
       this.animation = uni.createAnimation()
       // #endif
-      uni.getSystemInfo({
-        success: (res) => {
-          this.e = res
-          console.log(JSON.stringify(res));
-        }
-      });
+      // 获取系统信息
+      // uni.getSystemInfo({
+      //   success: (res) => {
+      //     this.e = res
+      //     console.log(JSON.stringify(res));
+      //   }
+      // });
+            uni.request({
+              url: 'https://douban-api.uieee.com/v2/movie/top250',
+              success(res) {
+                  that.toplist = res.data.subjects
+                  console.log(that.toplist,'1111');
+              }
+            })
+      
       uni.setNavigationBarColor({
         frontColor: '#000000',
         backgroundColor: '#DD524D',

@@ -7,18 +7,18 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
-  height: 20rpx;
+  height: 40rpx;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
 }
 .movieScore image {
-  width: 20rpx;
-  height: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 .movieScore .movieNum {
   margin-left: 20rpx;
-  font-size: 12px;
+  font-size: 16px;
   color: #808080;
 }
 
@@ -127,6 +127,7 @@
 }
   /* 猜你喜欢 */
 .guess-u-like{
+  background: #F7F7F7;
 }
 .guessLikeMovies{
   display: -webkit-box;
@@ -136,7 +137,9 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  padding: 20rpx;
+  padding:20rpx;
+  margin: 20rpx 0;
+  background: #ffffff;
 }
 .likeMovie{
   display: -webkit-box;
@@ -155,7 +158,8 @@
   height: 240rpx;
 }
 .likeMovie .movieDetail{
-  width: 40%;
+  width: 78%;
+  white-space: pre-wrap;
 }
 .likeMovie .movieDetail .movieTitle{
   white-space: nowrap;
@@ -166,6 +170,7 @@
 .likeMovie .movieDetail .movieTime{
   font-size: 14px;
   color: #808080;
+  display: inline-block;
 }
 .likeMovie .praise{
   display: -webkit-box;
@@ -178,7 +183,7 @@
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
-  width: 140rpx;
+  width: 20%;
   border-left: dashed;
   border-left-color: #dbdbdb;
 }

@@ -49,7 +49,6 @@
           </view>
         </view>
       </view>
-      <button @click="clear">清理</button>
       <view class="defaultMovie" v-if="searchData.length===0">
         <text class="title" v-if="searchValues.length!==0">搜索历史</text>
         <view class="searchHistory">
@@ -99,9 +98,6 @@
       this.searchValues = searchValues
     },
     methods: {
-      clear(){
-        uni.removeStorageSync('searchValues')
-        },
       search(e) {
         uni.showToast({
           title: '搜索中...',
