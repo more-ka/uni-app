@@ -49,9 +49,10 @@
           </view>
         </view>
       </view>
+      <button @click="clear">清理</button>
       <view class="defaultMovie" v-if="searchData.length===0">
-        <text class="title" >搜索历史</text>
-        <view class="searchHistory" >
+        <text class="title" v-if="searchValues.length!==0">搜索历史</text>
+        <view class="searchHistory">
           <view class="searchTerms" v-for="(values,index) in searchValues" :key="index" 
           @click="searchTermsClick" :data-termsIndex='index'>{{values}}</view>
         </view>
@@ -67,7 +68,7 @@
     </view>
   </view>
 </template>
-// 修改个人信息后, 返回页面层级错误
+ <!-- 修改个人信息后, 返回页面层级错误 -->
 <script>
   import search from '../../common/search.js'
   export default {
@@ -85,21 +86,22 @@
       }
     },
     onShow() {
-      console.log(this.searchData);
       if (this.searchData.length === 0) {
         this.searched = false
         this.defaultDate = search.data.rows
-        console.log(this.defaultDate);
       }
       let searchValues
-      try {
         searchValues = uni.getStorageSync('searchValues')
-      } catch (e) {
-        searchValues = []
-      }
+        if(searchValues.length===0){
+          console.log('jjkjk',searchValues);
+          searchValues = []
+        }
       this.searchValues = searchValues
     },
     methods: {
+      clear(){
+        uni.removeStorageSync('searchValues')
+        },
       search(e) {
         uni.showToast({
           title: '搜索中...',
@@ -115,7 +117,6 @@
         }
         // 数组去重
         let searchValues = this.searchValues
-        console.log(searchValues);
         let found = false
         for (let value in searchValues) {
           if (searchValues[value] === searchValue) {
@@ -125,13 +126,16 @@
         }
         if (!found) {
           searchValues.push(searchValue)
+          this.searchValues = searchValues
         }
         if(searchValues.length>=10){
           searchValues = searchValues.slice(0,10)
         }
         this.searchValues = searchValues
+        console.log(searchValues);
         uni.setStorageSync('searchValues',searchValues)
         // 视频搜索接口
+        return
         this.sendSearch(searchValue)
         
       },
@@ -163,11 +167,20 @@
           },
           // 获取数据, 解析数据
           success: (response) => {
-            this.searched = true
-            this.searchData = response.data.data
-            setTimeout(()=>{
-              uni.hideLoading()
-            },1000)
+            let data = response.data.data
+            if(data){
+              this.searched = true
+              this.searchData = data
+              setTimeout(()=>{
+                uni.hideLoading()
+              },500)
+            }else{
+              // 显示自动消失的提示消息
+              uni.showToast({
+                title: "抱歉,没找到该视频",
+                icon: "none"
+              })
+            }
           }
         })
       }

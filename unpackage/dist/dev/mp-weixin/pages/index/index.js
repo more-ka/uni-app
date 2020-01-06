@@ -237,83 +237,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _score = _interopRequireDefault(__webpack_require__(/*! ../../components/score/score */ 21));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -419,84 +342,34 @@ var _score = _interopRequireDefault(__webpack_require__(/*! ../../components/sco
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { animationData: {}, e: {} };}, onUnload: function onUnload() {this.animationData = {};}, onLoad: function onLoad() {var _this = this;this.animation = uni.createAnimation();uni.getSystemInfo({ success: function success(res) {_this.e = res;console.log(JSON.stringify(res));} });uni.setNavigationBarColor({ frontColor: '#000000', backgroundColor: '#DD524D', animation: { duration: 400, timingFunc: 'easeIn' } });}, methods: { praise: function praise() {this.animation.translateY(-60).opacity(1).step().translateY(0).opacity(0).step({ duration: 0 });this.animationData = this.animation.export();} }, components: { score: _score.default } };exports.default = _default;
+var _default = { data: function data() {return { animationData: {}, animationArr: [{}, {}, {}, {}, {}], e: {}, currentId: 0, videoContent: "", trailer: [{ "id": "123", "poster": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png", "src": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4" }, { "id": "456", "poster": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/poster.png", "src": "http://122.152.205.72:88/superhero/MARVEL/Avengers3/trailer.mp4" }], mockData: [{ "movieTitle": "秦时明月之沧海横流", "movieScore": 10, "movieCategory": "2018 / 美国 / 科幻 / 超级英雄", "movieTime": "上映时间：2014-04-04(美国/中国大陆)", "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png", "src": "../../static/icos/praise.png" }, { "movieTitle": "秦时明月之沧海横流", "movieScore": 10, "movieCategory": "2018 / 美国 / 科幻 / 超级英雄", "movieTime": "上映时间：2014-04-04(美国/中国大陆)", "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png", "src": "../../static/icos/praise.png" }, { "movieTitle": "秦时明月之沧海横流", "movieScore": 10, "movieCategory": "2018 / 美国 / 科幻 / 超级英雄", "movieTime": "上映时间：2014-04-04(美国/中国大陆)", "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png", "src": "../../static/icos/praise.png" }, { "movieTitle": "秦时明月之沧海横流", "movieScore": 10, "movieCategory": "2018 / 美国 / 科幻 / 超级英雄", "movieTime": "上映时间：2014-04-04(美国/中国大陆)", "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png", "src": "../../static/icos/praise.png" }, { "movieTitle": "秦时明月之沧海横流", "movieScore": 10, "movieCategory": "2018 / 美国 / 科幻 / 超级英雄", "movieTime": "上映时间：2014-04-04(美国/中国大陆)", "cover": "http://122.152.205.72:88/superhero/MARVEL/CaptainAmerica2/cover.png", "src": "../../static/icos/praise.png" }] };}, onReady: function onReady() {this.videoContent = uni.createVideoContext('Trailer');}, onHide: function onHide() {// 页面隐藏时暂停视频
+    this.videoContent.pause();}, onShow: function onShow() {if (this.videoContent) {this.videoContent.play();}}, onUnload: function onUnload() {this.animationData = {};this.animationArr = [{}, {}, {}, {}, {}];}, onLoad: function onLoad() {var _this = this;this.animation = uni.createAnimation();uni.getSystemInfo({ success: function success(res) {_this.e = res;console.log(JSON.stringify(res));} });uni.setNavigationBarColor({ frontColor: '#000000', backgroundColor: '#DD524D', animation: { duration: 400, timingFunc: 'easeIn' } });}, methods: { playing: function playing(e) {var currentId = e.currentTarget.dataset.id;this.videoContent = uni.createVideoContext(currentId);var trailer = this.trailer;for (var i = 0; i < trailer.length; i++) {var temp = trailer[i].id;if (temp !== currentId) {uni.createVideoContext(temp).pause();}}}, previewPicture: function previewPicture() {var url = "../../static/carousel/batmanvssuperman.png";var arr = [];arr.push(url);
+      uni.previewImage({
+        urls: arr,
+        success: function success(res) {
+        } });
+
+    },
+    praise: function praise(e) {var _this2 = this;
+
+      var gIndex = e.currentTarget.dataset.index;
+      this.animation.translateY(-60).opacity(1).step({
+        duration: 400 });
+
+      this.animationData = this.animation;
+      this.animationArr[gIndex] = this.animationData.export();
+      setTimeout(function () {
+        _this2.animation.translateY(0).opacity(0).step({
+          duration: 0 });
+
+        _this2.animationData = _this2.animation;
+        _this2.animationArr[gIndex] = _this2.animationData.export();
+      }, 500);
+
+    } },
+
+  components: {
+    score: _score.default } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

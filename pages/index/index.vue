@@ -102,7 +102,7 @@
   </view>
   </view>
 </template>
-<!-- 解决视频可以同时播放的问题 -->
+<!-- 文章总结 预览图片视频不暂停/多个视频可同时播放 的问题 -->
 <script>
   import score from "../../components/score/score"
   export default {
@@ -214,7 +214,6 @@
         uni.previewImage({
           urls: arr,
           success: function(res) {
-            console.log('ojbk');
           }
         })
       },
