@@ -66,6 +66,7 @@
 }
 .item .movieName{
   width: 200rpx;
+  font-size: 14px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -117,8 +118,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.likeMovie .movieDetail .movieCategory,
-.likeMovie .movieDetail .movieTime{
+
+.likeMovie .movieDetail text{
   font-size: 14px;
   color: #808080;
   display: inline-block;

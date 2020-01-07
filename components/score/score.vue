@@ -1,7 +1,7 @@
 <template name="score">
   <view class="movieScore">
-      <image v-for="yellow in yellowStar" :key="yellow" src="../../static/icos/star-yellow.png" calss="starIcon"></image>
-      <image v-for="grey in greyStar" :key="grey" src="../../static/icos/star-gray.png" class="starIcon"></image>
+      <image v-for="yellow in yellowStar" :key="'yellow-'+yellow" src="../../static/icos/star-yellow.png" calss="starIcon"></image>
+      <image v-for="grey in greyStar" :key="'grey'+grey" src="../../static/icos/star-gray.png" class="starIcon"></image>
     <view class="movieNum" v-if="showNum">{{movieScore}}</view>
   </view>
 </template>
