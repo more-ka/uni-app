@@ -49,6 +49,8 @@
           </view>
         </view>
       </view>
+      
+      
       <view class="defaultMovie" v-if="searchData.length===0">
         <text class="title" v-if="searchValues.length!==0">搜索历史</text>
         <view class="searchHistory">
@@ -92,7 +94,6 @@
       let searchValues
         searchValues = uni.getStorageSync('searchValues')
         if(searchValues.length===0){
-          console.log('jjkjk',searchValues);
           searchValues = []
         }
       this.searchValues = searchValues
