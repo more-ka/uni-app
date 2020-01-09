@@ -32,7 +32,7 @@
         <text>热门电影</text>
       </view>
       <scroll-view scroll-x="true" class="scroll">
-        <view class="item" @click="previewPicture" v-for="(movie,index) in hotMovie" :key="index">
+        <view class="item" @click="searchMovie" v-for="(movie,index) in hotMovie" :key="index" :data-movieName="movie.title">
           <image class="poster" src="../../static/poster/civilwar.jpg"></image>
           <view class="movieName">{{movie.title}}</view>
           <score :showNum="true" :movieScore="movie.rating.average"></score>
@@ -44,7 +44,6 @@
       <view class="title">
         <image src="../../static/icos/interest.png"></image>
         <text>热门预告</text>
-        <button @click="search">搜索</button>
       </view>
       
       <view class="movies">
@@ -57,10 +56,9 @@
         <image src="../../static/icos/guess-u-like.png"></image>
         <text>豆瓣TOP榜</text>
       </view>
-      <view class="guessLikeMovies" v-for="(item,index) in toplist" :key="'movie-'+index">
-        <view class="likeMovie">
-          <!-- <image :src="item.images.medium" mode=""></image> -->
-          <view class="movieDetail">
+      <view class="guessLikeMovies" >
+        <view class="likeMovie" v-for="(item,index) in toplist" :key="'movie-'+index">
+          <view class="movieDetail" :data-movieName="item.title" @click="searchMovie">
             <view class="movieTitle">{{item.title}}</view>
             <score :showNum="true" :movieScore="item.rating.average">{{item.rating.average}}</score>
             <view class="yearAndGenres">
@@ -71,7 +69,7 @@
             <text class="casts" v-for="(i,index) in item.casts" :key="'casts'+index">{{i.name}} \n</text>
           </view>
           <view class="praise" @click="praise" :data-index="index">
-            <image :src="item.src" class="icon"></image>
+            <image src="../../static/icos/praise.png" class="icon"></image>
             <view>点赞</view>
             <view :animation="animationArr[index]" class="animation">+1</view>
           </view>
@@ -171,11 +169,6 @@
       })
     },
     methods: {
-      search(){
-        uni.navigateTo({
-          url: '../searchpage/searchpage?movieName=庆余年'
-        })
-        },
       playing(e) {
         let currentId = e.currentTarget.dataset.id
         this.videoContent = uni.createVideoContext(currentId)
@@ -187,14 +180,10 @@
           }
         }
       },
-      previewPicture() {
-        let url = "../../static/carousel/batmanvssuperman.png"
-        let arr = []
-        arr.push(url)
-        uni.previewImage({
-          urls: arr,
-          success: function(res) {
-          }
+      searchMovie(e) {
+        let movieName = e.currentTarget.dataset.moviename
+        uni.navigateTo({
+          url: `../searchpage/searchpage?movieName=${movieName}`
         })
       },
       praise(e) {

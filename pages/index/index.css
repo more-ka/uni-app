@@ -1,7 +1,6 @@
 	/* 轮播图 */
   .page{
     background: #F7F7F7;
-    border: 1px solid lightslategrey;
     /* #ifdef APP-PLUS */
     margin-top: var(--status-bar-height);
     /* #endif */
@@ -96,13 +95,13 @@
 .guessLikeMovies{
   display: flex;
   flex-direction: column;
-  padding:20rpx;
-  margin: 20rpx 0;
-  background: #ffffff;
 }
 .likeMovie{
   display: flex;
   flex-direction: row;
+  padding:20rpx;
+  margin: 10rpx 0;
+  background: #ffffff;
   justify-content: space-between;
 }
 .likeMovie image{
@@ -120,7 +119,7 @@
 }
 
 .likeMovie .movieDetail text{
-  font-size: 14px;
+  font-size: 14px !important;
   color: #808080;
   display: inline-block;
 }

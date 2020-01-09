@@ -98,7 +98,7 @@
   /* padding-bottom: 80px; */
 }
 .movie {
-  margin-bottom: 40rpx;
+  margin: 40rpx;
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
@@ -190,6 +190,7 @@
   padding: 10rpx 20rpx;
   border-radius: 4px;
   border: 1px solid grey;
+  font-size: 14px;
 }
 
 a {
