@@ -6,22 +6,22 @@
     <swiper class="swiper page-block" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500"
       :circular="true">
       <swiper-item>
-        <view class="swiper-item">
+        <view class="swiper-item" @click="searchMovie" data-movieName="蝙蝠侠">
           <image src="../../static/carousel/batmanvssuperman.png" mode=""></image>
         </view>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-item">
+        <view class="swiper-item" @click="searchMovie" data-movieName="蜘蛛侠">
           <image src="../../static/carousel/spiderman.png" mode=""></image>
         </view>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-item">
+        <view class="swiper-item" @click="searchMovie" data-movieName="蝙蝠侠">
           <image src="../../static/carousel/batmanvssuperman.png" mode=""></image>
         </view>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-item">
+        <view class="swiper-item" @click="searchMovie" data-movieName="蜘蛛侠">
           <image src="../../static/carousel/spiderman.png" mode=""></image>
         </view>
       </swiper-item>

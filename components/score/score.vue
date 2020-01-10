@@ -48,7 +48,7 @@
   }
 
   .movieScore .movieNum {
-    margin-left: 20rpx;
+    margin-left: 10rpx;
     font-size: 16px;
     color: #808080;
   }
