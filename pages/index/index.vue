@@ -132,10 +132,11 @@
       //   }
       // });
       // 豆瓣top250
-      uni.showToast({
-        title: '请稍后',
-        icon: 'loading'
-      })
+      // uni.showToast({
+      //   title: '请稍后',
+      //   icon: 'loading',
+      //   duration: 1500
+      // })
             // uni.request({
             //   url: 'https://douban-api.uieee.com/v2/movie/top250',
             //   success(res) {
@@ -158,15 +159,6 @@
             //   uni.hideToast()
             // },1500)
               
-      
-      uni.setNavigationBarColor({
-        frontColor: '#000000',
-        backgroundColor: '#DD524D',
-        animation: {
-          duration: 400,
-          timingFunc: 'easeIn'
-        }
-      })
     },
     methods: {
       playing(e) {

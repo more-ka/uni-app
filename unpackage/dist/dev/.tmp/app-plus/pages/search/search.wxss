@@ -12,35 +12,16 @@
   /* background: #F7F7F7; */
   /* padding-bottom: 80px; */
 }
-.statusBar {
-
-  display: block;
-  position: fixed;
-  height: var(--status-bar-height);
-  width: 100%;
-  top: 0;
-  z-index: 1;
-  background: #FFFFFF;
-
-}
 .header {
 
   margin-top: var(--status-bar-height);
 
-  height: 170rpx;
+  height: 100rpx;
   width: 100vw;
   background: #FFFFFF;
   z-index: 200;
   position: fixed;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
-}
-.header .title {
-  font-weight: bold;
-  position: fixed;
-  /* height: 80rpx; */
-  width: 100%;
-  text-align: center;
-  line-height: 80rpx;
+  box-shadow:0px 15px 10px -15px #ccc;
 }
 /* 搜索栏 */
 .search {
@@ -55,15 +36,11 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
-  margin: 0 20rpx 20rpx 20rpx;
-  width: 95vw;
-  top: 200;
-  margin-top: 80rpx;
-  margin-right: 20rpx;
+  margin:20rpx 40rpx;
+  /* width: 90%; */
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid #eaeaea;
-  /* background: #eaeaea82; */
 }
 .searchIconWrapper {
   display: -webkit-box;
@@ -83,9 +60,10 @@
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;
-  /* background: #eaeaea82; */
   font-size: 14px;
-  padding: 10rpx 0;
+  padding: 0px 0;
+  -webkit-align-self: center;
+          align-self: center;
 }
 input {}
 /* 搜索结果 */
@@ -94,13 +72,13 @@ input {}
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin-top: 180rpx;
+  margin-top: 120rpx;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
 
-  margin-top: 120px;
+  margin-top: 180rpx;
 
 }
 .movie {
