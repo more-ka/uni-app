@@ -75,23 +75,8 @@
     }, {
       "path": "pages/searchpage/searchpage",
       "style": {
-        "navigationBarTitleText": "搜索结果",
-        "navigationBarBackgroundColor": "#ffffff",
         "app-plus": {
-          "titleNView": {
-            "type": "transparent", //透明渐变导航栏 App-nvue 2.4.4+ 支持
-            "searchInput": {
-              "backgroundColor": "#fff",
-              "borderRadius": "6px", //输入框圆角
-              "placeholder": "请输入搜索内容"
-            },
-            "buttons": [{
-              "text": "\ue607",
-              "fontSrc": "/static/iconfont.ttf",
-              "fontSize": "22px",
-              "float": "right"
-            }]
-          }
+          "titleNView": false //禁用原生导航栏
         }
       }
     }
