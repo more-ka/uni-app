@@ -1,7 +1,5 @@
 <template>
   <view class="page" :style="{height: pageHeight + 'px'}">
-
-
     <form @submit="formSubmit">
       <view class="picture">
         <image src="../../static/icos/default-face.png" mode=""></image>
@@ -25,7 +23,7 @@
       <image src="../../static/icos/QQ.png" data-loginType="qq" @click="auth"></image>
       <image src="../../static/icos/weibo.png" data-loginType="sinaweibo" @click="auth"></image>
       <!-- #endif -->
-      <!-- #ifndef MP-WEIXIN -->
+      <!-- #ifdef MP-WEIXIN -->
       <image src="../../static/icos/weixin.png" @click="weixinLogin"></image>
       <!-- #endif -->
     </view>

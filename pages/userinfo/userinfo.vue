@@ -101,7 +101,7 @@
       clearStorage(){
         // 没有后台, 所以跳回用户页面
         uni.showToast({
-          title: "注销成功, 请稍后",
+          title: "注销成功",
           icon: 'success',
           mask: true
         })

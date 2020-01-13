@@ -7,7 +7,7 @@
             <image src="../../static/icos/search.png" class="searchIcon"></image>
           </view>
           <view class="inputWrapper" >
-            <input type="text" v-model="searchValue" placeholder="搜索" 
+            <input type="text" v-model="searchValue" placeholder="搜索电影 电视剧" 
             confirm-type="search" @confirm="search" />
           </view>
         </view>

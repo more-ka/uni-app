@@ -1,21 +1,8 @@
 	/* 轮播图 */
   .page{
     background: #F7F7F7;
-    /* #ifdef APP-PLUS */
-    margin-top: var(--status-bar-height);
-    /* #endif */
   }
-  .statusBar{
-    /* #ifdef APP-PLUS */
-    display: block;
-    position: fixed;
-    height: var(--status-bar-height);
-    width: 100%;
-    top: 0;
-    z-index: 1;
-    background: #FFFFFF;
-    /* #endif */
-  }
+
   .page-block{
     background: #FFFFFF;
     marign-top: 20rpx;

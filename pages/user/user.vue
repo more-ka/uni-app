@@ -46,7 +46,6 @@
         })
       },
       testUser() {
-        
         let userInfo =  {
           "username": "测试账号",
           "userid": 53231323,
@@ -54,7 +53,7 @@
           "sex": '-1'
         }
         uni.showToast({
-          title:'测试账号登录成功',
+          title:'账号登录成功',
           mask: true
         })
         setTimeout(()=>{

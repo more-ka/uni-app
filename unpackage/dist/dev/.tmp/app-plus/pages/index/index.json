@@ -1,5 +1,4 @@
 {
-  "titleNView": false,
   "usingComponents": {
     "score": "/components/score/score"
   }
