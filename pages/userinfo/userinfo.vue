@@ -61,12 +61,14 @@
     methods: {
       modifyNickname(){
         uni.navigateTo({
-          url: "../modifyNickname/modifyNickname"
+          url: "../modifyNickname/modifyNickname",
+          animationType: 'slide-in-bottom'
         })
       },
       modifyBirthday(){
         uni.navigateTo({
-          url: "../modifyBirthday/modifyBirthday"
+          url: "../modifyBirthday/modifyBirthday",
+          animationType: 'slide-in-bottom'
         })
       },
       changeAvatar(){
@@ -90,7 +92,8 @@
                 success(response) {
                   var fileUrl = response.tempFilePaths[0]
                  uni.navigateTo({
-                   url: "/pages/meface/meface?fileUrl="+fileUrl
+                   url: "/pages/meface/meface?fileUrl="+fileUrl,
+                   animationType: 'slide-in-bottom'
                  })
                 }
               })
@@ -115,7 +118,8 @@
       },
       modifySex(){
         uni.navigateTo({
-          url: '../modifySex/modifySex'
+          url: '../modifySex/modifySex',
+          animationType: 'slide-in-bottom'
         });
       }
     }

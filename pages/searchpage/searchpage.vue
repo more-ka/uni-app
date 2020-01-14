@@ -1,13 +1,15 @@
 <template>
   <view class="page">
+    <!-- 搜索视频可能含有多个播放源 bug -->
+    <!-- 给视频结果页面添加搜索历史 -->
     <view class="statusBar"></view>
     <view class="nav">
       <view class="iconWrapper" @click="back">
         <image src="../../static/icos/back.png" class="searchIcon"></image>
       </view>
       <view class="searchWrapper">
-        <input class="search" id="search" type="text" ref="search111" v-model="searchTerms" placeholder="搜索" confirm-type="search"
-          @confirm="search" />
+        <input class="search" id="search" type="text" ref="search111" @focus="inputFocus = true" v-model="searchTerms"
+          placeholder="搜索" confirm-type="search" @confirm="search" />
         <view class="deleteIcon" @click="deleteTerms">
           <image src="../../static/icos/delete.png"></image>
         </view>
@@ -16,6 +18,15 @@
         <image src="../../static/icos/search.png" class="searchIcon"></image>
       </view>
     </view>
+
+
+    <view class="searchHistory" v-if="inputFocus">
+      <view class="title">搜索历史</view>
+      <view class="searchTerms" v-for="(values,index) in searchValues" :key="index" @click="searchTermsClick"
+        :data-termsIndex='index'>{{values}}</view>
+    </view>
+
+
     <view class="movie" v-if="searchData" v-for="movie in searchData" :key="movie.id">
       <text class="movieName">{{movie.title}}</text>
       <view class="detail">
@@ -54,8 +65,8 @@
     </view>
     <view v-if="termsIsEmpty" class="errorTips">
       <view class="errorTipsWrapper">
-      <image src="../../static/icos/error1.png" class="errorIcon"></image>
-      <view class="errorMessage">搜索词为空</view>
+        <image src="../../static/icos/error1.png" class="errorIcon"></image>
+        <view class="errorMessage">搜索词为空</view>
       </view>
     </view>
   </view>
@@ -67,14 +78,24 @@
       return {
         searchData: [],
         indexs: [],
+        searchValues: [],
         searchTerms: '',
         termsIsEmpty: false,
-        movieNotfound: false
+        movieNotfound: false,
+        inputFocus: false
       }
     },
     onLoad(e) {
-      // console.log(e.movieName);
+      let searchValues
+      searchValues = uni.getStorageSync('searchValues')
+      if (searchValues.length === 0) {
+        searchValues = []
+      }
+      this.searchValues = searchValues
       this.searchTerms = e.movieName
+      if (!this.searchTerms) {
+        return
+      }
       this.getmovie(e.movieName)
     },
     methods: {
@@ -89,8 +110,26 @@
         }
       },
       getmovie(searchValue) {
-        return
         let that = this
+        let searchValues = that.searchValues
+        let searchTerms = that.searchTerms
+        let found = false
+        that.inputFocus = false
+        for (let value in searchValues) {
+          if (searchValues[value] === searchTerms) {
+            found = true
+            break
+          }
+        }
+        if (!found) {
+          searchValues.unshift(searchValue)
+        }
+        if (searchValues.length > 9) {
+          searchValues = searchValues.slice(0, 10)
+        }
+        that.searchValues = searchValues
+        uni.setStorageSync('searchValues', searchValues)
+        return
         uni.showToast({
           title: '请稍后...',
           icon: 'loading'
@@ -123,13 +162,16 @@
           }
         })
       },
+      searchTermsClick(e) {
+        this.searchTerms = this.searchValues[e.currentTarget.dataset.termsindex]
+      },
       back() {
         uni.navigateBack({
           delta: 1
         })
       },
       searchIconClick() {
-        if (this.searchTerms.length === 0) {
+        if (!this.searchTerms) {
           this.termsIsEmpty = true
           this.movieNotfound = false
           this.searchData = []
@@ -181,7 +223,6 @@
 
   /* 导航栏 */
   .nav {
-    /* padding: 5rpx 0; */
     height: 100rpx;
     width: 100%;
     display: flex;
@@ -216,8 +257,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ffffff;
     border-radius: 20px;
+    background: #ffffff;
   }
 
   .nav .searchWrapper input {
@@ -239,6 +280,35 @@
   .deleteIcon image {
     height: 30rpx;
     width: 30rpx;
+    z-index: 201;
+  }
+
+  /* 搜索历史 */
+
+  .searchHistory {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #FFFFFF;
+    padding: 20rpx;
+  }
+
+  .searchHistory .title {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  .searchTerms {
+    background: #f3f3f3;
+    padding: 6rpx 12rpx;
+    margin: 10rpx;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 60rpx;
+    text-align: center;
   }
 
   /* 视频列表 */
@@ -357,7 +427,8 @@
     height: calc(100vh - 100rpx - var(--status-bar-height) - 5px);
     /* #endif */
   }
-  .errorTipsWrapper{
+
+  .errorTipsWrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -365,6 +436,7 @@
     height: 300rpx;
     width: 100vw;
   }
+
   .errorTips .errorIcon {
     display: flex;
     width: 20px;

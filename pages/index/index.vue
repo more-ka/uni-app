@@ -173,7 +173,8 @@
       searchMovie(e) {
         let movieName = e.currentTarget.dataset.moviename
         uni.navigateTo({
-          url: `../searchpage/searchpage?movieName=${movieName}`
+          url: `../searchpage/searchpage?movieName=${movieName}`,
+          animationType: 'slide-in-bottom'
         })
       },
       praise(e) {

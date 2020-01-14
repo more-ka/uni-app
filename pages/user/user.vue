@@ -37,12 +37,14 @@
     methods: {
       login() {
         uni.navigateTo({
-          url: '/pages/login/login'
+          url: '/pages/login/login',
+          animationType: 'slide-in-bottom'
         })
       },
       modify() {
         uni.navigateTo({
-          url: '/pages/userinfo/userinfo'
+          url: '/pages/userinfo/userinfo',
+          animationType: 'slide-in-bottom'
         })
       },
       testUser() {
