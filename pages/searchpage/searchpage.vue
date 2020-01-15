@@ -47,14 +47,16 @@
         </view>
       </view>
       <view class="selectLink">播放列表</view>
-      <view v-for="(item,index) in JSON.parse(movie.online_link)" :key="index" class="playLink">
-        <view v-for="(i,index) in item" :key="index" class="playLinkItem button">
-          <view v-for="(o,index) in i" :key="index" class="">
-            <navigator :url="'../player/player?url='+`${o}`">
-              {{Object.keys(i)[0]}}
-            </navigator>
+      <view class="playLink">
+        <block v-for="(item,index) in JSON.parse(movie.online_link)" :key="index">
+          <view v-for="(i,index) in item" :key="index" class="playLinkItem button">
+            <view v-for="(o,index) in i" :key="index" class="">
+              <navigator :url="'../player/player?url='+`${o}`">
+                {{Object.keys(i)[0]}}
+              </navigator>
+            </view>
           </view>
-        </view>
+        </block>
       </view>
     </view>
     <view v-if="movieNotfound" class="errorTips">
@@ -129,8 +131,8 @@
         }
         that.searchValues = searchValues
         uni.setStorageSync('searchValues', searchValues)
-        return
-        uni.showToast({
+        // return
+        uni.showLoading({
           title: '请稍后...',
           icon: 'loading'
         })
@@ -146,11 +148,11 @@
             that.movieNotfound = false
             // console.log(data);
             if (data) {
-              // this.searched = true
+              uni.hideLoading()
               that.searchData = data
-              // console.log(data, '11');
             } else {
               // 提示消息
+              uni.hideLoading()
               that.movieNotfound = true
               this.termsIsEmpty = false
               that.searchData = ''
@@ -158,7 +160,6 @@
           },
           complete() {
             that.searchTerms = ''
-            uni.hideLoading()
           }
         })
       },

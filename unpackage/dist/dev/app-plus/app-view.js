@@ -1123,11 +1123,11 @@ Z([3,'item'])
 Z(z[9])
 Z([[6],[[7],[3,'movie']],[3,'title']])
 Z([3,'poster'])
-Z([3,'../../static/poster/civilwar.jpg'])
+Z([[6],[[7],[3,'movie']],[3,'poster']])
 Z([3,'movieName'])
 Z([a,[[6],[[7],[3,'movie']],[3,'title']]])
 Z([3,'__l'])
-Z([[6],[[6],[[7],[3,'movie']],[3,'rating']],[3,'average']])
+Z([[6],[[7],[3,'movie']],[3,'star']])
 Z(z[1])
 Z([[2,'+'],[1,'1-'],[[7],[3,'index']]])
 Z([3,'hotMovie page-block'])
@@ -1484,11 +1484,11 @@ Z([3,'toggleShowInfoIcon down'])
 Z([3,'toggleShowInfoIcon up'])
 Z([3,'selectLink'])
 Z([3,'播放列表'])
+Z([3,'playLink'])
 Z(z[33])
 Z([3,'item'])
 Z([[6],[[7],[3,'movie']],[3,'l1']])
 Z(z[33])
-Z([3,'playLink'])
 Z(z[33])
 Z([3,'i'])
 Z([[6],[[7],[3,'item']],[3,'l0']])
@@ -2256,13 +2256,13 @@ _rz(z,c8H,'class',85,c5G,o4G,gg)
 var h9H=_oz(z,86,c5G,o4G,gg)
 _(c8H,h9H)
 _(t9G,c8H)
-var o0H=_v()
-_(t9G,o0H)
-var cAI=function(lCI,oBI,aDI,gg){
-var eFI=_n('view')
-_rz(z,eFI,'class',91,lCI,oBI,gg)
+var o0H=_n('view')
+_rz(z,o0H,'class',87,c5G,o4G,gg)
+var cAI=_v()
+_(o0H,cAI)
+var oBI=function(aDI,lCI,tEI,gg){
 var bGI=_v()
-_(eFI,bGI)
+_(tEI,bGI)
 var oHI=function(oJI,xII,fKI,gg){
 var hMI=_n('view')
 _rz(z,hMI,'class',96,oJI,xII,gg)
@@ -2284,12 +2284,12 @@ _(fKI,hMI)
 return fKI
 }
 bGI.wxXCkey=2
-_2z(z,94,oHI,lCI,oBI,gg,bGI,'i','index','index')
-_(aDI,eFI)
-return aDI
+_2z(z,94,oHI,aDI,lCI,gg,bGI,'i','index','index')
+return tEI
 }
-o0H.wxXCkey=2
-_2z(z,89,cAI,c5G,o4G,gg,o0H,'item','index','index')
+cAI.wxXCkey=2
+_2z(z,90,oBI,c5G,o4G,gg,cAI,'item','index','index')
+_(t9G,o0H)
 _(a8G,t9G)
 }
 a8G.wxXCkey=1
