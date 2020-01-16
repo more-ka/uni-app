@@ -50,7 +50,7 @@
         userInfo: {}
       }
     },
-    onLoad() {
+    onShow() {
       // let storage = uni.getStorageSync("globalUser")
       // this.imageSrc = storage[image]
       let userImage = uni.getStorageSync("userImage")

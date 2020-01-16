@@ -157,11 +157,31 @@ a {
 }
 
 /* 未搜索时展示的数据 */
-
+.defaultMovie{
+  width: 100%;
+}
 .defaultMovie .title{
   font-weight: bold;
   line-height: 1.8;
   font-size: 16px;
+  display: flex;
+  flex-direction: row;
+}
+.searchHistoryTitle{
+  font-weight: bold;
+  line-height: 1.8;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 20rpx;
+}
+.searchHistoryTitle view{
+  
+}
+.searchHistoryTitle image{
+  width: 40rpx;
+  height: 40rpx;
 }
 .defaultMovie .searchHistory{
   display: flex;

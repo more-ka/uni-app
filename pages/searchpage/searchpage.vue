@@ -1,7 +1,6 @@
 <template>
   <view class="page">
-    <!-- 搜索视频可能含有多个播放源 bug -->
-    <!-- 给视频结果页面添加搜索历史 -->
+    <!-- 搜索历史添加删除按钮 -->
     <view class="statusBar"></view>
     <view class="nav">
       <view class="iconWrapper" @click="back">
@@ -19,9 +18,13 @@
       </view>
     </view>
 
-
     <view class="searchHistory" v-if="inputFocus">
-      <view class="title">搜索历史</view>
+      <view class="title">
+        <view>搜索历史</view>
+        <view @click="clearSearchTerms">
+          <image src="../../static/icos/delete6.png"></image>
+        </view>
+      </view>
       <view class="searchTerms" v-for="(values,index) in searchValues" :key="index" @click="searchTermsClick"
         :data-termsIndex='index'>{{values}}</view>
     </view>
@@ -59,18 +62,18 @@
         </block>
       </view>
     </view>
-    <view v-if="movieNotfound" class="errorTips">
+    <view v-if="error" class="errorTips">
       <view class="errorTipsWrapper">
         <image src="../../static/icos/error1.png" class="errorIcon"></image>
-        <view class="errorMessage">抱歉, 没有找到这个视频</view>
+        <view class="errorMessage">{{errorMessage}}</view>
       </view>
     </view>
-    <view v-if="termsIsEmpty" class="errorTips">
+<!--    <view v-if="termsIsEmpty" class="errorTips">
       <view class="errorTipsWrapper">
         <image src="../../static/icos/error1.png" class="errorIcon"></image>
         <view class="errorMessage">搜索词为空</view>
       </view>
-    </view>
+    </view> -->
   </view>
 </template>
 
@@ -82,9 +85,9 @@
         indexs: [],
         searchValues: [],
         searchTerms: '',
-        termsIsEmpty: false,
-        movieNotfound: false,
-        inputFocus: false
+        error: false,
+        inputFocus: false,
+        errorMessage: ''
       }
     },
     onLoad(e) {
@@ -130,6 +133,7 @@
           searchValues = searchValues.slice(0, 10)
         }
         that.searchValues = searchValues
+        return
         uni.setStorageSync('searchValues', searchValues)
         // return
         uni.showLoading({
@@ -146,16 +150,20 @@
           success: (response) => {
             let data = response.data.data
             that.movieNotfound = false
-            // console.log(data);
             if (data) {
+              that.error = false
               uni.hideLoading()
               that.searchData = data
             } else {
               // 提示消息
               uni.hideLoading()
-              that.movieNotfound = true
-              this.termsIsEmpty = false
+              that.error = true
               that.searchData = ''
+              if(response.statusCode === 429){
+                that.errorMessage = '每天最多搜索15次,请明天在试'
+              }else{
+                that.errorMessage = '抱歉,没找到该视频'
+              }
             }
           },
           complete() {
@@ -173,25 +181,29 @@
       },
       searchIconClick() {
         if (!this.searchTerms) {
-          this.termsIsEmpty = true
-          this.movieNotfound = false
+          this.error = true
+          this.errorMessage = '搜索框为空'
           this.searchData = []
         } else {
-          this.termsIsEmpty = false
-          this.movieNotfound = false
           this.getmovie(this.searchTerms)
         }
       },
       deleteTerms() {
         this.searchTerms = ''
-        console.log('shanchu');
-        // this.thisFocus()
-        // web端报错,禁止直接修改属性,建议使用计算属性,APP端不可用
       },
-      thisFocus() {
-        let dom = this.$refs.search111
-        dom.focus = true
-      }
+      clearSearchTerms(){
+        let that = this
+          uni.showModal({
+              title: '提示',
+              content: '确认删除搜索历史?',
+              success: function (res) {
+                  if (res.confirm) {
+                      that.searchValues = []
+                      uni.removeStorageSync('searchValues')
+                  }
+              }
+          })
+        }
     }
   }
 </script>
@@ -247,8 +259,8 @@
 
   .nav .iconWrapper image {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 40rpx;
+    height: 40rpx;
     align-items: center;
     margin: auto;
   }
@@ -295,13 +307,19 @@
   }
 
   .searchHistory .title {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     font-weight: bold;
     line-height: 1.8;
     font-size: 16px;
   }
-
+  .searchHistory .title view image{
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: text-bottom;
+    margin-right: 20rpx;
+  }
   .searchTerms {
     background: #f3f3f3;
     padding: 6rpx 12rpx;

@@ -4,23 +4,23 @@
     <swiper class="swiper page-block" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500"
       :circular="true">
       <swiper-item>
-        <view class="swiper-item" @click="searchMovie" data-movieName="蝙蝠侠">
-          <image src="../../static/carousel/batmanvssuperman.png" mode=""></image>
+        <view class="swiper-item" @click="searchMovie" data-movieName="美丽人生">
+          <image src="https://s2.ax1x.com/2020/01/16/lxJqXT.jpg" mode=""></image>
         </view>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-item" @click="searchMovie" data-movieName="蜘蛛侠">
-          <image src="../../static/carousel/spiderman.png" mode=""></image>
+        <view class="swiper-item" @click="searchMovie" data-movieName="绿皮书">
+          <image src="https://s2.ax1x.com/2020/01/17/lxr9dP.jpg" mode=""></image>
         </view>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-item" @click="searchMovie" data-movieName="蝙蝠侠">
-          <image src="../../static/carousel/batmanvssuperman.png" mode=""></image>
+        <view class="swiper-item" @click="searchMovie" data-movieName="叶问4">
+          <image src="https://s2.ax1x.com/2020/01/16/lxJbcV.jpg" mode=""></image>
         </view>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-item" @click="searchMovie" data-movieName="蜘蛛侠">
-          <image src="../../static/carousel/spiderman.png" mode=""></image>
+        <view class="swiper-item" @click="searchMovie" data-movieName="海上钢琴师">
+          <image src="https://s2.ax1x.com/2020/01/16/lxJH10.jpg" mode=""></image>
         </view>
       </swiper-item>
     </swiper>
@@ -38,17 +38,16 @@
       </scroll-view>
       <view></view>
     </view>
-    <view class="hotMovie page-block">
+<!--    <view class="hotMovie page-block">
       <view class="title">
         <image src="../../static/icos/interest.png"></image>
         <text>热门预告</text>
       </view>
-      
       <view class="movies">
         <video v-for="(item,index) in trailer" :key="index" class="Trailer" :data-id="item.id" :poster="item.poster"
           :src="item.src" @play="playing" :id="item.id"></video>
       </view>
-    </view>
+    </view> -->
     <view class="guess-u-like page-block">
       <view class="title">
         <image src="../../static/icos/guess-u-like.png"></image>

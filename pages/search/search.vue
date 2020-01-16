@@ -12,7 +12,12 @@
     </view>
     <view class="main">
       <view class="defaultMovie" v-if="searchData.length===0">
-        <text class="title" v-if="searchValues.length!==0">搜索历史</text>
+        <view class="searchHistoryTitle" v-if="searchValues.length!==0">
+          <view>搜索历史</view>
+          <view @click="clearSearchTerms">
+            <image src="../../static/icos/delete6.png"></image>
+          </view>
+        </view>
         <view class="searchHistory">
           <view class="searchTerms" v-for="(values,index) in searchValues" :key="index" @click="searchTermsClick"
             :data-termsIndex='index'>{{values}}</view>
@@ -51,6 +56,7 @@
       let searchValues
       searchValues = uni.getStorageSync('searchValues')
       if (searchValues.length === 0) {
+        console.log('storage空的')
         searchValues = []
       }
       this.searchValues = searchValues
@@ -82,7 +88,6 @@
           this.searchValues = searchValues
         }
         this.searchValues = searchValues
-        console.log(this.searchValues)
         uni.setStorageSync('searchValues', searchValues)
         // 视频搜索接口
         this.sendSearch(searchValue)
@@ -93,7 +98,8 @@
         this.searchValue = this.searchValues[e.currentTarget.dataset.termsindex]
       },
       recommendMovieClick(e) {
-        this.sendSearch(e.currentTarget.dataset.moviename)
+        this.searchValue = e.currentTarget.dataset.moviename
+        this.search()
       },
       // 剧情简介的展开与折叠按钮
       toggleShowInfo(e) {
@@ -112,6 +118,19 @@
           url: `../searchpage/searchpage?movieName=${searchValue}`,
           animationType: 'slide-in-bottom'
         })
+      },
+      clearSearchTerms(){
+        let that = this
+        uni.showModal({
+            title: '提示',
+            content: '确认删除搜索历史?',
+            success: function (res) {
+                if (res.confirm) {
+                    that.searchValues = []
+                    uni.removeStorageSync('searchValues')
+                }
+            }
+        });
       }
     }
   }
