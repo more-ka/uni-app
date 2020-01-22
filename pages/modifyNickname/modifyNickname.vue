@@ -23,6 +23,14 @@
     },
 		methods: {
 			sureModify(){
+        if(!this.nickname){
+          uni.showToast({
+            title: "昵称不能为空",
+            icon: 'none',
+            duration: 1500
+          })
+          return
+          }
         this.userInfo.username = this.nickname
         uni.setStorageSync('globalUser',this.userInfo)
         uni.showLoading({

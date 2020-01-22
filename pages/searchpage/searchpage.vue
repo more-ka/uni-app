@@ -3,9 +3,15 @@
     <!-- 搜索历史添加删除按钮 -->
     <view class="statusBar"></view>
     <view class="nav">
-      <view class="iconWrapper" @click="back">
+      <!-- #ifndef MP-WEIXIN -->
+      <view class="iconWrapper back" @click="back">
         <image src="../../static/icos/back.png" class="searchIcon"></image>
       </view>
+      <!-- #endif -->
+      <!-- #ifdef MP-WEIXIN -->
+      <view class="iconWrapper back">
+      </view>
+      <!-- #endif -->
       <view class="searchWrapper">
         <input class="search" id="search" type="text" ref="search111" @focus="inputFocus = true" v-model="searchTerms"
           placeholder="搜索" confirm-type="search" @confirm="search" />
@@ -97,7 +103,7 @@
         searchValues = []
       }
       this.searchValues = searchValues
-      this.searchTerms = e.movieName
+      this.searchTerms = e.movieName.replace(/\s*/g,'')
       if (!this.searchTerms) {
         return
       }
@@ -133,13 +139,12 @@
           searchValues = searchValues.slice(0, 10)
         }
         that.searchValues = searchValues
-        return
         uni.setStorageSync('searchValues', searchValues)
-        // return
         uni.showLoading({
           title: '请稍后...',
           icon: 'loading'
         })
+        console.log('准备发送请求了')
         uni.request({
           method: "POST",
           url: "http://www.geekicon.club/api/v1/video",
@@ -149,6 +154,7 @@
           // 获取数据, 解析数据
           success: (response) => {
             let data = response.data.data
+            console.log('这是获取到的数据--',data);
             that.movieNotfound = false
             if (data) {
               that.error = false
@@ -185,7 +191,7 @@
           this.errorMessage = '搜索框为空'
           this.searchData = []
         } else {
-          this.getmovie(this.searchTerms)
+          this.getmovie(this.searchTerms.replace(/\s*/g,''))
         }
       },
       deleteTerms() {
@@ -255,6 +261,9 @@
     justify-content: center;
     align-items: center;
     width: 80rpx;
+  }
+  .nav .iconWrapper.back{
+    width: 40rpx;
   }
 
   .nav .iconWrapper image {

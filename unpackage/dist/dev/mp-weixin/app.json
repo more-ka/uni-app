@@ -10,14 +10,15 @@
     "pages/modifyNickname/modifyNickname",
     "pages/modifyBirthday/modifyBirthday",
     "pages/modifySex/modifySex",
-    "pages/player/player"
+    "pages/player/player",
+    "pages/searchpage/searchpage"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "电影推荐",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarBackgroundColor": "#ffd655",
+    "backgroundColor": "#ffd655"
   },
   "tabBar": {
     "color": "#bfbfbf",
@@ -45,6 +46,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap88.json"
+  "usingComponents": {}
 }

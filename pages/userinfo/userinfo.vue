@@ -56,7 +56,6 @@
       let userImage = uni.getStorageSync("userImage")
       this.userInfo = uni.getStorageSync("globalUser")
       this.userImage = userImage
-      console.log(this.userInfo);
     },
     methods: {
       modifyNickname(){
@@ -108,7 +107,7 @@
           icon: 'success',
           mask: true
         })
-        uni.clearStorage()
+        uni.setStorageSync('globalUser','')
         setTimeout(function(){
           uni.hideToast()
           uni.reLaunch({

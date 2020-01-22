@@ -208,7 +208,7 @@ toplist: [{"rating": {"max": 10, "average": 9.7, "details": {"1": 1414.0, "3": 1
       praise(e) {
         // #ifdef APP-PLUS || MP-WEIXIN
         let gIndex = e.currentTarget.dataset.index
-        this.animation.translateY(-60).opacity(1).step({
+        this.animation.translateY(-50).opacity(1).step({
           duration: 400
         })
         this.animationData = this.animation

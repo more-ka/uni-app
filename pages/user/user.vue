@@ -27,7 +27,7 @@
         userInfo: {}
       }
     },
-    onLoad() {
+    onShow() {
       // uni.setStorageSync('globalUser',this.userInfo)
       this.userInfo = uni.getStorageSync('globalUser')
       // this.userInfo = JSON.parse(user)

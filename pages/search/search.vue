@@ -48,7 +48,7 @@
         currentIndex: -1,
         indexs: [],
         showMovieInfo: [],
-        searchValues: []
+        searchValues: []        
       }
     },
     onShow() {
@@ -56,14 +56,14 @@
       let searchValues
       searchValues = uni.getStorageSync('searchValues')
       if (searchValues.length === 0) {
-        console.log('storage空的')
         searchValues = []
       }
       this.searchValues = searchValues
     },
     methods: {
       search() {
-        let searchValue = this.searchValue
+        let searchValue = this.searchValue.replace(/\s*/g,'')
+        console.log(searchValue.length);
         if (searchValue === '') {
           uni.showToast({
             title: '无搜索关键词',
@@ -83,7 +83,7 @@
         if (!found) {
           searchValues.unshift(searchValue)
         }
-        if (searchValues.length >= 10) {
+        if (searchValues.length > 9) {
           searchValues = searchValues.slice(0, 10)
           this.searchValues = searchValues
         }
