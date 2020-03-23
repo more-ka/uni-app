@@ -52,6 +52,6 @@
     "autoclose": false
   },
   "appname": "movieRecommend",
-  "compilerVersion": "2.5.1",
+  "compilerVersion": "2.6.0",
   "usingComponents": {}
 }

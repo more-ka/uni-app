@@ -41,15 +41,19 @@
 
 
 .container{
+  box-sizing: border-box;
   width: 100%;
   position: fixed;
   bottom: 0;
   display: flex;
   flex-direction: column;
+  padding: 0 20rpx;
 }
 .container view{
   text-align: center;
   padding: 20rpx;
+}
+.container view:first-child{
   border-bottom: 1px solid lightgrey;
 }
 

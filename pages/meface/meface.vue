@@ -1,7 +1,7 @@
 <template>
   <view class="page">
     <view class="main">
-      <image :src="fileUrl" class="image"></image>
+      <image :src="fileUrl" mode="aspectFit" class="image"></image>
     </view>
     <view class="container">
       <view class="again" @click="again">重新选择</view>
@@ -59,12 +59,12 @@
     color: white;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 45px);
+    height: calc(100vh);
   }
 
   .page .main {
     height: 100%;
-    width: 100%;
+    width: 100vw;
     flex: 1;
     display: flex;
     align-items: center;
@@ -74,15 +74,18 @@
   .main image {}
 
   .page .container {
-    height: 80rpx;
+    background: #FFFFFF;
+    height: 100rpx;
     display: flex;
     border-top: 1px solid lightgrey;
     align-items: center;
     font-size: 16px;
     flex-direction: row;
-    padding: 0 20rpx;
+    padding: 0 40rpx;
     justify-content: space-between;
   }
-
+  .container view{
+    color: #000000;
+  }
   .confirm {}
 </style>

@@ -4,7 +4,7 @@
     <view class="statusBar"></view>
     <view class="nav">
       <!-- #ifndef MP-WEIXIN -->
-      <view class="iconWrapper back" @click="back">
+      <view class="iconWrapper" @click="back">
         <image src="../../static/icos/back.png" class="searchIcon"></image>
       </view>
       <!-- #endif -->
@@ -144,7 +144,6 @@
           title: '请稍后...',
           icon: 'loading'
         })
-        console.log('准备发送请求了')
         uni.request({
           method: "POST",
           url: "http://www.geekicon.club/api/v1/video",
@@ -154,7 +153,6 @@
           // 获取数据, 解析数据
           success: (response) => {
             let data = response.data.data
-            console.log('这是获取到的数据--',data);
             that.movieNotfound = false
             if (data) {
               that.error = false

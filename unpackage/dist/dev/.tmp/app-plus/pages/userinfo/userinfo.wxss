@@ -43,6 +43,7 @@
   border-radius: 50%;
 }
 .container{
+  box-sizing: border-box;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -53,10 +54,13 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
+  padding: 0 20rpx;
 }
 .container view{
   text-align: center;
   padding: 20rpx;
+}
+.container view:first-child{
   border-bottom: 1px solid lightgrey;
 }
 

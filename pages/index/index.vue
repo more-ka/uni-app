@@ -24,6 +24,7 @@
         </view>
       </swiper-item>
     </swiper>
+    <!-- <view class="tips">请使用手机端访问</view> -->
     <view class="hot page-block">
       <view class="title">
         <image src="../../static/icos/hot.png"></image>
@@ -38,7 +39,7 @@
       </scroll-view>
       <view></view>
     </view>
-<!--    <view class="hotMovie page-block">
+   <view class="hotMovie page-block">
       <view class="title">
         <image src="../../static/icos/interest.png"></image>
         <text>热门预告</text>
@@ -47,7 +48,7 @@
         <video v-for="(item,index) in trailer" :key="index" class="Trailer" :data-id="item.id" :poster="item.poster"
           :src="item.src" @play="playing" :id="item.id"></video>
       </view>
-    </view> -->
+    </view>
     <view class="guess-u-like page-block">
       <view class="title">
         <image src="../../static/icos/guess-u-like.png"></image>

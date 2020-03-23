@@ -24,7 +24,9 @@
 
 	/* 轮播图 */
 .page{
-    background: #F7F7F7;
+    background: #F7F7F7;    
+    max-width: 420px;
+    margin: 0 auto;
 }
 .page-block{
     background: #FFFFFF;
@@ -45,6 +47,13 @@
     font-size: 16px;
     background: #F7F7F7;
     margin-bottom: 10rpx;
+}
+.tips{
+    text-align: center;
+    background: yellow;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px;
 }
   /* 热门电影 */
 .hot{
